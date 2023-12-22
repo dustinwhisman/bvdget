@@ -1,0 +1,49 @@
+name: Validation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check-commit-message:
+    name: Check Commit Messages
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check commit message type
+        uses: gsactions/commit-message-checker@v2
+        with:
+          pattern: '^(feat|fix|docs|style|refactor|test|chore|perf|ci|revert|release)(\([A-Za-z-]+\))?!?: .+'
+          error: 'Commit messages must begin with a valid commit type.'
+          excludeDescription: 'true'
+          excludeTitle: 'true'
+          checkAllCommitMessages: 'true'
+          accessToken: ${{ secrets.GITHUB_TOKEN }}
+
+  lint:
+    name: Lint & Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Test
+        env:
+          PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
+          PUBLIC_SUPABASE_KEY: ${{ secrets.PUBLIC_SUPABASE_KEY }}
+        run: |
+          npx playwright install
+          npm run test
