@@ -11,6 +11,15 @@ export const actions = {
 			return fail(500, { message: 'Server error. Try again later.', success: false, email });
 		}
 
-		throw redirect(303, '/');
+		throw redirect(303, '/overview');
 	},
+};
+
+export const load = async ({ url }) => {
+	const email = url.searchParams.get('email') ?? '';
+	if (!email) {
+		throw redirect(303, '/auth/login');
+	}
+
+	return { email };
 };
