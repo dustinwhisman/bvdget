@@ -1,4 +1,5 @@
 import { getMonthlyOverview } from '$lib/monthly-overview.js';
+import { getMontlyPagination } from '$lib/monthly-pagination.js';
 import { fail } from '@sveltejs/kit';
 
 export const load = async ({ locals: { supabase } }) => {
@@ -10,11 +11,14 @@ export const load = async ({ locals: { supabase } }) => {
 			year: 'numeric',
 			month: 'short',
 		});
+		const { previous, next } = getMontlyPagination(year, month);
 		const monthlyOverview = await getMonthlyOverview(supabase, year, month);
 
 		return {
 			...monthlyOverview,
 			formattedDate,
+			previous,
+			next,
 		};
 	} catch (error) {
 		return fail(500, { message: 'Server error. Try again later.', success: false });

@@ -4,6 +4,15 @@
 
 <h1>{data.formattedDate}</h1>
 
+<ul>
+	<li>
+		<a href={data.previous.link}>{data.previous.text}</a>
+	</li>
+	<li>
+		<a href={data.next.link}>{data.next.text}</a>
+	</li>
+</ul>
+
 <h2>Expenses</h2>
 {#if data.expenses.length}
 	<ul>
