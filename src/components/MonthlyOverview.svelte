@@ -47,6 +47,7 @@
 {:else}
 	<p>No savings found.</p>
 {/if}
+<a href="/savings">Add Savings</a>
 
 <h2>Debt</h2>
 {#if data.debt.length}
