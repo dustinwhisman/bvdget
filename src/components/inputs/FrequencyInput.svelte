@@ -3,6 +3,7 @@
 
 	export let selectedFrequency = '1-month';
 	export let daysOfMonth = [];
+	export let date;
 </script>
 
 <fieldset>
@@ -100,5 +101,5 @@
 		</div>
 	</fieldset>
 {:else}
-	<DateInputs legend="Choose the most recent date when this expense occurred" />
+	<DateInputs legend="Choose the most recent date when this expense occurred" {date} />
 {/if}

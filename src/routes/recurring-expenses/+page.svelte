@@ -8,7 +8,9 @@
 	<ul>
 		{#each data.recurringExpenses as expense}
 			<li>
-				{expense.description}: {expense.amount}
+				<a href="/recurring-expenses/expense/{expense.id}"
+					>{expense.description}: {expense.amount}</a
+				>
 			</li>
 		{/each}
 	</ul>
