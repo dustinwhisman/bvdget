@@ -86,6 +86,7 @@
 	<fieldset>
 		<legend>Choose which days of the month this expense typically occurs on</legend>
 		<div>
+			<!-- eslint-disable-next-line no-unused-vars -->
 			{#each Array(31) as day, index}
 				<div>
 					<input
