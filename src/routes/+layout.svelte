@@ -22,10 +22,11 @@
 
 <header>
 	<nav>
-		<a href="/">Home</a>
 		{#if session != null}
+			<a href="/overview">Overview</a>
 			<a href="/auth/sign-out">Sign out</a>
 		{:else}
+			<a href="/">Home</a>
 			<a href="/auth/login">Log in/sign up</a>
 		{/if}
 	</nav>
