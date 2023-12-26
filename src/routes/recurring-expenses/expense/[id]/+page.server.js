@@ -40,7 +40,7 @@ export const load = async ({ params: { id }, locals: { supabase } }) => {
 };
 
 export const actions = {
-	default: async ({ request, locals: { supabase } }) => {
+	edit: async ({ request, locals: { supabase } }) => {
 		const formData = await request.formData();
 		const id = formData.get('id');
 
@@ -77,6 +77,18 @@ export const actions = {
 				updated_at,
 			})
 			.eq('id', id);
+
+		if (error) {
+			return fail(500, { message: 'Server error. Try again later.', success: false });
+		}
+
+		throw redirect(303, '/recurring-expenses');
+	},
+	delete: async ({ request, locals: { supabase } }) => {
+		const formData = await request.formData();
+		const id = formData.get('id');
+
+		const { error } = await supabase.from('recurring_expenses').delete().eq('id', id);
 
 		if (error) {
 			return fail(500, { message: 'Server error. Try again later.', success: false });
