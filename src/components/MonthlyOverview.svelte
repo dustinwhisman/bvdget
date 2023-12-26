@@ -45,7 +45,9 @@
 {#if data.savings.length}
 	<ul>
 		{#each data.savings as savingsEntry}
-			<li>{savingsEntry.description}: {savingsEntry.amount}</li>
+			<li>
+				<a href="/savings/{savingsEntry.id}">{savingsEntry.description}: {savingsEntry.amount}</a>
+			</li>
 		{/each}
 	</ul>
 {:else}
