@@ -17,7 +17,9 @@
 {#if data.expenses.length}
 	<ul>
 		{#each data.expenses as expense}
-			<li>{expense.description}: {expense.amount}</li>
+			<li>
+				<a href="/expense/{expense.id}">{expense.description}: {expense.amount}</a>
+			</li>
 		{/each}
 	</ul>
 {:else}
@@ -29,7 +31,9 @@
 {#if data.income.length}
 	<ul>
 		{#each data.income as incomeEntry}
-			<li>{incomeEntry.description}: {incomeEntry.amount}</li>
+			<li>
+				<a href="/income/{incomeEntry.id}">{incomeEntry.description}: {incomeEntry.amount}</a>
+			</li>
 		{/each}
 	</ul>
 {:else}
@@ -41,7 +45,9 @@
 {#if data.savings.length}
 	<ul>
 		{#each data.savings as savingsEntry}
-			<li>{savingsEntry.description}: {savingsEntry.amount}</li>
+			<li>
+				<a href="/savings/{savingsEntry.id}">{savingsEntry.description}: {savingsEntry.amount}</a>
+			</li>
 		{/each}
 	</ul>
 {:else}
@@ -53,7 +59,9 @@
 {#if data.debt.length}
 	<ul>
 		{#each data.debt as debtEntry}
-			<li>{debtEntry.description}: {debtEntry.amount}</li>
+			<li>
+				<a href="/debt/{debtEntry.id}">{debtEntry.description}: {debtEntry.amount}</a>
+			</li>
 		{/each}
 	</ul>
 {:else}

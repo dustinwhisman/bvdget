@@ -2,9 +2,17 @@
 	export let date = new Date();
 	export let showDate = true;
 
-	const year = date.getFullYear();
-	const month = date.getMonth() + 1;
-	const day = showDate ? date.getDate() : 1;
+	let year;
+	let month;
+	let day;
+
+	if (typeof date === 'string') {
+		[year, month, day] = date.split('-');
+	} else {
+		year = date.getFullYear();
+		month = date.getMonth() + 1;
+		day = showDate ? date.getDate() : 1;
+	}
 </script>
 
 <fieldset>
