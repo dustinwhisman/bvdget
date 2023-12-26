@@ -10,7 +10,7 @@
 
 <h1>Edit Debt</h1>
 
-<form method="POST">
+<form method="POST" action="?/edit">
 	<input type="hidden" name="id" value={data.debt.id} />
 	<DateInputs showDate={false} date={data.debt.date} />
 	<CategoryInput categories={data.categories} selectedCategory={data.debt.category} />
@@ -20,5 +20,6 @@
 	<InterestRateInput interestRate={data.debt.interest_rate} />
 	<div>
 		<button type="submit">Save Debt</button>
+		<button type="submit" formaction="?/delete">Delete Debt</button>
 	</div>
 </form>
