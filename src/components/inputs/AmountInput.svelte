@@ -1,13 +1,15 @@
 <script>
 	export let amount = '';
+	export let label = 'Amount';
+	export let name = 'amount';
 </script>
 
 <div>
-	<label for="amount">Amount</label>
+	<label for={name}>{label}</label>
 	<input
-		id="amount"
+		id={name}
 		type="text"
-		name="amount"
+		{name}
 		inputmode="numeric"
 		pattern={'^(\\s{1,})?\\$?\\d{1,3}(,?\\d{3})*(\\.\\d{1,2})?(\\s{1,})?$'}
 		required

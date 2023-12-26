@@ -10,7 +10,7 @@
 <h1>Add Savings</h1>
 
 <form method="POST">
-	<AmountInput />
+	<AmountInput label="Balance" />
 	<CategoryInput categories={data.categories} />
 	<DescriptionInput />
 	<DateInputs showDate={false} />
