@@ -45,6 +45,9 @@
 	<p>No income found.</p>
 {/if}
 <p>
+	<a href="/recurring-income">Manage Recurring Income</a>
+</p>
+<p>
 	<a href="/income">Add Income</a>
 </p>
 
