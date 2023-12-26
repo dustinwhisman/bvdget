@@ -1,6 +1,7 @@
 <script>
 	export let date = new Date();
 	export let showDate = true;
+	export let legend = 'Date';
 
 	let year;
 	let month;
@@ -16,7 +17,7 @@
 </script>
 
 <fieldset>
-	<legend>Date</legend>
+	<legend>{legend}</legend>
 	<div>
 		<div>
 			<label for="year">Year</label>

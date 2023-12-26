@@ -25,7 +25,12 @@
 {:else}
 	<p>No expenses found.</p>
 {/if}
-<a href="/expense">Add Expense</a>
+<p>
+	<a href="/recurring-expenses">Manage Recurring Expenses</a>
+</p>
+<p>
+	<a href="/expense">Add Expense</a>
+</p>
 
 <h2>Income</h2>
 {#if data.income.length}
@@ -39,7 +44,9 @@
 {:else}
 	<p>No income found.</p>
 {/if}
-<a href="/income">Add Income</a>
+<p>
+	<a href="/income">Add Income</a>
+</p>
 
 <h2>Savings</h2>
 {#if data.savings.length}
@@ -53,7 +60,9 @@
 {:else}
 	<p>No savings found.</p>
 {/if}
-<a href="/savings">Add Savings</a>
+<p>
+	<a href="/savings">Add Savings</a>
+</p>
 
 <h2>Debt</h2>
 {#if data.debt.length}
@@ -67,4 +76,6 @@
 {:else}
 	<p>No debt found.</p>
 {/if}
-<a href="/debt">Add Debt</a>
+<p>
+	<a href="/debt">Add Debt</a>
+</p>
