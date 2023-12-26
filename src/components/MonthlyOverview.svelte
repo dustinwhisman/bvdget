@@ -59,3 +59,4 @@
 {:else}
 	<p>No debt found.</p>
 {/if}
+<a href="/debt">Add Debt</a>
