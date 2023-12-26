@@ -9,7 +9,7 @@
 
 <h1>Edit Income</h1>
 
-<form method="POST">
+<form method="POST" action="?/edit">
 	<input type="hidden" name="id" value={data.income.id} />
 	<DateInputs date={data.income.date} />
 	<CategoryInput categories={data.categories} selectedCategory={data.income.category} />
@@ -17,5 +17,6 @@
 	<AmountInput amount={data.income.amount} />
 	<div>
 		<button type="submit">Save Income</button>
+		<button type="submit" formaction="?/delete">Delete Income</button>
 	</div>
 </form>
