@@ -23,6 +23,7 @@
 {:else}
 	<p>No expenses found.</p>
 {/if}
+<a href="/expense">Add Expense</a>
 
 <h2>Income</h2>
 {#if data.income.length}
