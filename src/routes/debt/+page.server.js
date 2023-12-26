@@ -37,17 +37,15 @@ export const actions = {
 		const {
 			data: { user },
 		} = await supabase.auth.getUser();
-		const { error } = await supabase
-			.from('debt')
-			.insert({
-				user_id: user.id,
-				date,
-				category,
-				description,
-				amount,
-				minimum_payment,
-				interest_rate,
-			});
+		const { error } = await supabase.from('debt').insert({
+			user_id: user.id,
+			date,
+			category,
+			description,
+			amount,
+			minimum_payment,
+			interest_rate,
+		});
 
 		if (error) {
 			return fail(500, { message: 'Server error. Try again later.', success: false });
