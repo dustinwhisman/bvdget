@@ -35,6 +35,7 @@
 {:else}
 	<p>No income found.</p>
 {/if}
+<a href="/income">Add Income</a>
 
 <h2>Savings</h2>
 {#if data.savings.length}
@@ -46,6 +47,7 @@
 {:else}
 	<p>No savings found.</p>
 {/if}
+<a href="/savings">Add Savings</a>
 
 <h2>Debt</h2>
 {#if data.debt.length}
@@ -57,3 +59,4 @@
 {:else}
 	<p>No debt found.</p>
 {/if}
+<a href="/debt">Add Debt</a>

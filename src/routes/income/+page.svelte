@@ -7,7 +7,7 @@
 	export let data;
 </script>
 
-<h1>Add Expense</h1>
+<h1>Add Income</h1>
 
 <form method="POST">
 	<DateInputs />
@@ -15,6 +15,6 @@
 	<DescriptionInput />
 	<AmountInput />
 	<div>
-		<button type="submit">Save Expense</button>
+		<button type="submit">Save Income</button>
 	</div>
 </form>
