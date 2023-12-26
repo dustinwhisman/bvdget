@@ -15,3 +15,6 @@
 {:else}
 	<p>No recurring expenses found.</p>
 {/if}
+<p>
+	<a href="/recurring-expenses/expense">Add Recurring Expense</a>
+</p>
