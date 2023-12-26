@@ -59,7 +59,9 @@
 {#if data.debt.length}
 	<ul>
 		{#each data.debt as debtEntry}
-			<li>{debtEntry.description}: {debtEntry.amount}</li>
+			<li>
+				<a href="/debt/{debtEntry.id}">{debtEntry.description}: {debtEntry.amount}</a>
+			</li>
 		{/each}
 	</ul>
 {:else}
