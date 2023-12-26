@@ -17,7 +17,9 @@
 {#if data.expenses.length}
 	<ul>
 		{#each data.expenses as expense}
-			<li>{expense.description}: {expense.amount}</li>
+			<li>
+				<a href="/expense/{expense.id}">{expense.description}: {expense.amount}</a>
+			</li>
 		{/each}
 	</ul>
 {:else}
