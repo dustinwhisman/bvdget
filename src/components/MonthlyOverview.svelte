@@ -31,7 +31,9 @@
 {#if data.income.length}
 	<ul>
 		{#each data.income as incomeEntry}
-			<li>{incomeEntry.description}: {incomeEntry.amount}</li>
+			<li>
+				<a href="/income/{incomeEntry.id}">{incomeEntry.description}: {incomeEntry.amount}</a>
+			</li>
 		{/each}
 	</ul>
 {:else}
