@@ -20,10 +20,7 @@ const getSavings = async (supabase, id) => {
 		throw new Error('Could not find the specified savings.');
 	}
 
-	return {
-		...savings[0],
-		date: new Date(`${savings[0].date}T00:00:00.000`),
-	};
+	return savings[0];
 };
 
 export const load = async ({ params: { id }, locals: { supabase } }) => {
