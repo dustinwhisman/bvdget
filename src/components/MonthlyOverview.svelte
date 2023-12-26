@@ -35,6 +35,7 @@
 {:else}
 	<p>No income found.</p>
 {/if}
+<a href="/income">Add Income</a>
 
 <h2>Savings</h2>
 {#if data.savings.length}
