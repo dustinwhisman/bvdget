@@ -10,10 +10,10 @@
 <h1>Add Income</h1>
 
 <form method="POST">
-	<AmountInput />
+	<DateInputs />
 	<CategoryInput categories={data.categories} />
 	<DescriptionInput />
-	<DateInputs />
+	<AmountInput />
 	<div>
 		<button type="submit">Save Income</button>
 	</div>

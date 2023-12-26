@@ -10,10 +10,10 @@
 <h1>Add Expense</h1>
 
 <form method="POST">
-	<AmountInput />
+	<DateInputs />
 	<CategoryInput categories={data.categories} />
 	<DescriptionInput />
-	<DateInputs />
+	<AmountInput />
 	<div>
 		<button type="submit">Save Expense</button>
 	</div>

@@ -11,12 +11,12 @@
 <h1>Add Debt</h1>
 
 <form method="POST">
+	<DateInputs showDate={false} />
+	<CategoryInput categories={data.categories} />
+	<DescriptionInput />
 	<AmountInput label="Balance" />
 	<AmountInput label="Minimum Payment" name="minimum-payment" />
 	<InterestRateInput />
-	<CategoryInput categories={data.categories} />
-	<DescriptionInput />
-	<DateInputs showDate={false} />
 	<div>
 		<button type="submit">Save Debt</button>
 	</div>
