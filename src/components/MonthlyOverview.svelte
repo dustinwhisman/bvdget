@@ -41,7 +41,7 @@
 {:else}
 	<p>No expenses found.</p>
 	{#if canCopyExpenses}
-		<form method="POST" action="?/copyExpenses">
+		<form method="POST" action="?/copyExpenses" aria-label="Copy Recurring Expenses">
 			<input type="hidden" name="year" value={year} />
 			<input type="hidden" name="month" value={month} />
 			<button type="submit">Copy Recurring Expenses</button>
@@ -67,7 +67,7 @@
 {:else}
 	<p>No income found.</p>
 	{#if canCopyIncome}
-		<form method="POST" action="?/copyIncome">
+		<form method="POST" action="?/copyIncome" aria-label="Copy Recurring Income">
 			<input type="hidden" name="year" value={year} />
 			<input type="hidden" name="month" value={month} />
 			<button type="submit">Copy Recurring Income</button>
@@ -93,7 +93,7 @@
 {:else}
 	<p>No savings found.</p>
 	{#if canCopySavings}
-		<form method="POST" action="?/copySavings">
+		<form method="POST" action="?/copySavings" aria-label="Copy Last Month's Savings">
 			<input type="hidden" name="year" value={year} />
 			<input type="hidden" name="month" value={month} />
 			<button type="submit">Copy Last Month's Savings</button>
@@ -116,7 +116,7 @@
 {:else}
 	<p>No debt found.</p>
 	{#if canCopyDebt}
-		<form method="POST" action="?/copyDebt">
+		<form method="POST" action="?/copyDebt" aria-label="Copy Last Month's Debt">
 			<input type="hidden" name="year" value={year} />
 			<input type="hidden" name="month" value={month} />
 			<button type="submit">Copy Last Month's Debt</button>
