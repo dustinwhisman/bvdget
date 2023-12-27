@@ -12,6 +12,7 @@
 		savings,
 		debt,
 		canCopyExpenses,
+		canCopyIncome,
 	} = data;
 </script>
 
@@ -63,6 +64,13 @@
 	</ul>
 {:else}
 	<p>No income found.</p>
+	{#if canCopyIncome}
+		<form method="POST" action="?/copyIncome">
+			<input type="hidden" name="year" value={year} />
+			<input type="hidden" name="month" value={month} />
+			<button type="submit">Copy Recurring Income</button>
+		</form>
+	{/if}
 {/if}
 <p>
 	<a href="/recurring-income">Manage Recurring Income</a>
