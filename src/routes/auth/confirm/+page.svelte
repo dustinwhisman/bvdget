@@ -15,7 +15,7 @@
 {:else}
 	<p>Check your email for a one-time code that you can use to confirm your login.</p>
 
-	<form method="POST">
+	<form method="POST" aria-label="Finish logging in">
 		<input type="hidden" name="email" value={data.email} />
 		<label for="token">One-time code</label>
 		<input id="token" type="text" name="token" inputmode="numeric" autocomplete="one-time-code" />

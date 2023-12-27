@@ -10,7 +10,7 @@
 
 <h1>Edit Recurring Income</h1>
 
-<form method="POST" action="?/edit">
+<form method="POST" action="?/edit" aria-label="Edit recurring income">
 	<input type="hidden" name="id" value={data.income.id} />
 	<CategoryInput categories={data.categories} selectedCategory={data.income.category} />
 	<DescriptionInput description={data.income.description} />

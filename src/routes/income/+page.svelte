@@ -9,7 +9,7 @@
 
 <h1>Add Income</h1>
 
-<form method="POST">
+<form method="POST" aria-label="Add income">
 	<DateInputs />
 	<CategoryInput categories={data.categories} />
 	<DescriptionInput />

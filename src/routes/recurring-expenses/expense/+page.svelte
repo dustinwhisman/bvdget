@@ -10,7 +10,7 @@
 
 <h1>Add Recurring Expense</h1>
 
-<form method="POST">
+<form method="POST" aria-label="Add recurring expense">
 	<CategoryInput categories={data.categories} />
 	<DescriptionInput />
 	<AmountInput />

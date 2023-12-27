@@ -9,7 +9,7 @@
 
 <h1>Edit Savings</h1>
 
-<form method="POST" action="?/edit">
+<form method="POST" action="?/edit" aria-label="Edit savings">
 	<input type="hidden" name="id" value={data.savings.id} />
 	<DateInputs showDate={false} date={data.savings.date} />
 	<CategoryInput categories={data.categories} selectedCategory={data.savings.category} />

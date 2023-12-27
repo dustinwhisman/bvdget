@@ -10,7 +10,7 @@
 
 <h1>Edit Recurring Expense</h1>
 
-<form method="POST" action="?/edit">
+<form method="POST" action="?/edit" aria-label="Edit recurring expense">
 	<input type="hidden" name="id" value={data.expense.id} />
 	<CategoryInput categories={data.categories} selectedCategory={data.expense.category} />
 	<DescriptionInput description={data.expense.description} />
