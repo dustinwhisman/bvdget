@@ -31,4 +31,6 @@
 		{/if}
 	</nav>
 </header>
+<main>
 <slot />
+</main>
