@@ -1,4 +1,5 @@
 <script>
+	import { page } from '$app/stores';
 	import { invalidate } from '$app/navigation';
 	import { onMount } from 'svelte';
 
@@ -20,6 +21,9 @@
 	});
 </script>
 
+<svelte:head>
+	<title>{$page.data.title ?? 'bvdget'} | bvdget</title>
+</svelte:head>
 <header>
 	<nav>
 		{#if session != null}
@@ -31,4 +35,6 @@
 		{/if}
 	</nav>
 </header>
-<slot />
+<main>
+	<slot />
+</main>

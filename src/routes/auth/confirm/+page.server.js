@@ -21,5 +21,8 @@ export const load = async ({ url }) => {
 		throw redirect(303, '/auth/login');
 	}
 
-	return { email };
+	return {
+		email,
+		title: 'Confirm Login',
+	};
 };

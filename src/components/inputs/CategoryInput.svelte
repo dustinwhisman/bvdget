@@ -35,13 +35,6 @@
 {#if selectedCategory === 'NEW_CATEGORY'}
 	<div>
 		<label for="new-category">New Category</label>
-		<input
-			id="new-category"
-			type="text"
-			name="new-category"
-			required
-			aria-required="true"
-			autocapitalize="on"
-		/>
+		<input id="new-category" type="text" name="new-category" required autocapitalize="on" />
 	</div>
 {/if}

@@ -12,6 +12,7 @@ export const load = async ({ locals: { supabase } }) => {
 
 	return {
 		categories,
+		title: 'Add Income',
 	};
 };
 

@@ -11,5 +11,6 @@ export const load = async ({ locals: { supabase } }) => {
 
 	return {
 		recurringExpenses,
+		title: 'Manage Recurring Expenses',
 	};
 };

@@ -9,7 +9,7 @@
 
 <h1>Add Savings</h1>
 
-<form method="POST">
+<form method="POST" aria-label="Add savings">
 	<DateInputs showDate={false} />
 	<CategoryInput categories={data.categories} />
 	<DescriptionInput />
