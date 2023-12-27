@@ -1,5 +1,6 @@
 import { fail, redirect } from '@sveltejs/kit';
 import { formatAmount, formatDate } from '$lib/format-inputs.js';
+import { gateDynamicPage } from '$lib/gate-dynamic-page.js';
 
 const getCategories = async (supabase) => {
 	const { data: categories } = await supabase
@@ -24,19 +25,17 @@ const getIncome = async (supabase, id) => {
 };
 
 export const load = async ({ params: { id }, locals: { supabase } }) => {
-	try {
-		const [categories, income] = await Promise.all([
-			getCategories(supabase),
-			getIncome(supabase, id),
-		]);
+	await gateDynamicPage(supabase);
 
-		return {
-			categories,
-			income,
-		};
-	} catch (error) {
-		return fail(500, { message: 'Server error. Try again later.', success: false });
-	}
+	const [categories, income] = await Promise.all([
+		getCategories(supabase),
+		getIncome(supabase, id),
+	]);
+
+	return {
+		categories,
+		income,
+	};
 };
 
 export const actions = {
