@@ -6,10 +6,10 @@
 
 <ul>
 	<li>
-		<a href={data.previous.link}>{data.previous.text}</a>
+		<a href={previous.link} data-sveltekit-reload>{previous.text}</a>
 	</li>
 	<li>
-		<a href={data.next.link}>{data.next.text}</a>
+		<a href={next.link} data-sveltekit-reload>{next.text}</a>
 	</li>
 </ul>
 
