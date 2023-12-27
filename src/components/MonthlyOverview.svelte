@@ -13,6 +13,8 @@
 		debt,
 		canCopyExpenses,
 		canCopyIncome,
+		canCopySavings,
+		canCopyDebt,
 	} = data;
 </script>
 
@@ -90,6 +92,13 @@
 	</ul>
 {:else}
 	<p>No savings found.</p>
+	{#if canCopySavings}
+		<form method="POST" action="?/copySavings">
+			<input type="hidden" name="year" value={year} />
+			<input type="hidden" name="month" value={month} />
+			<button type="submit">Copy Last Month's Savings</button>
+		</form>
+	{/if}
 {/if}
 <p>
 	<a href="/savings">Add Savings</a>
@@ -106,6 +115,13 @@
 	</ul>
 {:else}
 	<p>No debt found.</p>
+	{#if canCopyDebt}
+		<form method="POST" action="?/copyDebt">
+			<input type="hidden" name="year" value={year} />
+			<input type="hidden" name="month" value={month} />
+			<button type="submit">Copy Last Month's Debt</button>
+		</form>
+	{/if}
 {/if}
 <p>
 	<a href="/debt">Add Debt</a>

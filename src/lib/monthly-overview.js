@@ -56,16 +56,48 @@ const hasRecurringIncome = async (supabase) => {
 	return count > 0;
 };
 
+const hasSavingsLastMonth = async (supabase, previousMonth, currentMonth) => {
+	const { count } = await supabase
+		.from('savings')
+		.select('*', { count: 'exact', head: true })
+		.gte('date', previousMonth)
+		.lt('date', currentMonth);
+
+	return count > 0;
+};
+
+const hasDebtLastMonth = async (supabase, previousMonth, currentMonth) => {
+	const { count } = await supabase
+		.from('debt')
+		.select('*', { count: 'exact', head: true })
+		.gte('date', previousMonth)
+		.lt('date', currentMonth);
+
+	return count > 0;
+};
+
 export const getMonthlyOverview = async (supabase, year, month) => {
+	const previousMonth = new Date(year, month - 1, 1).toDateString();
 	const currentMonth = new Date(year, month, 1).toDateString();
 	const nextMonth = new Date(year, month + 1, 1).toDateString();
-	const [expenses, income, savings, debt, canCopyExpenses, canCopyIncome] = await Promise.all([
+	const [
+		expenses,
+		income,
+		savings,
+		debt,
+		canCopyExpenses,
+		canCopyIncome,
+		canCopySavings,
+		canCopyDebt,
+	] = await Promise.all([
 		getExpenses(supabase, currentMonth, nextMonth),
 		getIncome(supabase, currentMonth, nextMonth),
 		getSavings(supabase, currentMonth, nextMonth),
 		getDebt(supabase, currentMonth, nextMonth),
 		hasRecurringExpenses(supabase),
 		hasRecurringIncome(supabase),
+		hasSavingsLastMonth(supabase, previousMonth, currentMonth),
+		hasDebtLastMonth(supabase, previousMonth, currentMonth),
 	]);
 
 	return {
@@ -77,5 +109,7 @@ export const getMonthlyOverview = async (supabase, year, month) => {
 		debt,
 		canCopyExpenses,
 		canCopyIncome,
+		canCopySavings,
+		canCopyDebt,
 	};
 };
