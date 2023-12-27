@@ -2,6 +2,8 @@ import { getMonthlyOverview } from '$lib/monthly-overview.js';
 import { getMontlyPagination } from '$lib/monthly-pagination.js';
 import { gateDynamicPage } from '$lib/gate-dynamic-page.js';
 
+export { actions } from '$lib/copy-recurring';
+
 export const load = async ({ params: { year, month }, locals: { supabase } }) => {
 	await gateDynamicPage(supabase);
 
