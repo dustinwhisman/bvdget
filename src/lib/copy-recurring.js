@@ -148,7 +148,46 @@ const copyRecurring =
 		throw redirect(303, pathname);
 	};
 
+const copyPrevious =
+	(type) =>
+	async ({ request, url: { pathname }, locals: { supabase } }) => {
+		const formData = await request.formData();
+		const year = formData.get('year');
+		const month = formData.get('month');
+
+		const numericYear = Number(year);
+		const numericMonth = Number(month);
+
+		const previousMonth = new Date(numericYear, numericMonth - 1, 1);
+		const currentMonth = new Date(numericYear, numericMonth, 1);
+
+		const { data: previousEntries } = await supabase
+			.from(type)
+			.select()
+			.gte('date', previousMonth.toDateString())
+			.lt('date', currentMonth.toDateString());
+
+		const newEntries = [];
+
+		for (const entry of previousEntries) {
+			const newEntry = {
+				...entry,
+				date: new Date(numericYear, numericMonth, 1),
+			};
+			delete newEntry.id;
+			delete newEntry.created_at;
+			delete newEntry.updated_at;
+			newEntries.push(newEntry);
+		}
+
+		await Promise.all(newEntries.map((entry) => addEntry(supabase, entry, type)));
+
+		throw redirect(303, pathname);
+	};
+
 export const actions = {
 	copyExpenses: copyRecurring('expenses'),
 	copyIncome: copyRecurring('income'),
+	copySavings: copyPrevious('savings'),
+	copyDebt: copyPrevious('debt'),
 };
