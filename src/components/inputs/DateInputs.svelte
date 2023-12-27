@@ -28,7 +28,6 @@
 				inputmode="numeric"
 				pattern="^[1-2][0-9][0-9][0-9]$"
 				required
-				aria-required="true"
 				value={year}
 			/>
 		</div>
@@ -41,7 +40,6 @@
 				inputmode="numeric"
 				pattern="^(0?[1-9]|1[012])$"
 				required
-				aria-required="true"
 				value={month}
 			/>
 		</div>
@@ -55,7 +53,6 @@
 					inputmode="numeric"
 					pattern="^(0?[1-9]|[12]\d|3[01])$"
 					required
-					aria-required="true"
 					value={day}
 				/>
 			</div>

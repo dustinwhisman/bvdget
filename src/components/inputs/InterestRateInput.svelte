@@ -11,7 +11,6 @@
 		inputmode="numeric"
 		pattern={'^(\\s{1,})?\\d{1,2}(\\.\\d+)?(%)?(\\s{1,})?$'}
 		required
-		aria-required="true"
 		value={interestRate}
 	/>
 </div>
