@@ -21,5 +21,6 @@ export const load = async ({ locals: { supabase } }) => {
 		formattedDate,
 		previous,
 		next,
+		title: formattedDate,
 	};
 };

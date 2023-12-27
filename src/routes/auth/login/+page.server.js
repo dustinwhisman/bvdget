@@ -13,3 +13,9 @@ export const actions = {
 		throw redirect(303, `/auth/confirm?email=${email}`);
 	},
 };
+
+export const load = () => {
+	return {
+		title: 'Log In',
+	};
+};

@@ -32,6 +32,7 @@ export const load = async ({ params: { id }, locals: { supabase } }) => {
 	return {
 		categories,
 		debt,
+		title: 'Edit Debt',
 	};
 };
 

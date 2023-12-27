@@ -22,5 +22,6 @@ export const load = async ({ params: { year, month }, locals: { supabase } }) =>
 		formattedDate,
 		previous,
 		next,
+		title: formattedDate,
 	};
 };
