@@ -11,16 +11,17 @@ const setToCurrentMonth = (year, month, day) => {
 	return date;
 };
 
-const addExpense = async (supabase, expense) => {
-	const { error } = await supabase.from('expenses').insert(expense);
+const addEntry = async (supabase, entry, type) => {
+	const { error } = await supabase.from(type).insert(entry);
 
 	if (error) {
 		throw new Error(error);
 	}
 };
 
-export const actions = {
-	copyExpenses: async ({ request, url: { pathname }, locals: { supabase } }) => {
+const copyRecurring =
+	(type) =>
+	async ({ request, url: { pathname }, locals: { supabase } }) => {
 		const formData = await request.formData();
 		const year = formData.get('year');
 		const month = formData.get('month');
@@ -31,108 +32,108 @@ export const actions = {
 		const currentMonth = new Date(numericYear, numericMonth, 1);
 		const nextMonth = new Date(numericYear, numericMonth + 1, 1);
 
-		const { data: recurringExpenses } = await supabase
-			.from('recurring_expenses')
+		const { data: recurringEntries } = await supabase
+			.from(`recurring_${type}`)
 			.select('user_id,date,category,description,amount,frequency,days_of_month')
 			.eq('active', true);
 
-		const newExpenses = [];
+		const newEntries = [];
 
-		for (const expense of recurringExpenses) {
-			const originalDate = new Date(expense.date);
+		for (const entry of recurringEntries) {
+			const originalDate = new Date(entry.date);
 			const originalDateMonth = originalDate.getUTCMonth();
 			const originalDateDay = originalDate.getUTCDate();
 
-			switch (expense.frequency) {
+			switch (entry.frequency) {
 				case '1-month': {
-					const newExpense = {
-						...expense,
+					const newEntry = {
+						...entry,
 						date: setToCurrentMonth(numericYear, numericMonth, originalDateDay),
 					};
-					delete newExpense.frequency;
-					delete newExpense.days_of_month;
-					newExpenses.push(newExpense);
+					delete newEntry.frequency;
+					delete newEntry.days_of_month;
+					newEntries.push(newEntry);
 					break;
 				}
 				case '3-month': {
 					if (Math.abs(numericMonth - originalDateMonth) % 3 === 0) {
-						const newExpense = {
-							...expense,
+						const newEntry = {
+							...entry,
 							date: setToCurrentMonth(numericYear, numericMonth, originalDateDay),
 						};
-						delete newExpense.frequency;
-						delete newExpense.days_of_month;
-						newExpenses.push(newExpense);
+						delete newEntry.frequency;
+						delete newEntry.days_of_month;
+						newEntries.push(newEntry);
 					}
 					break;
 				}
 				case '6-month': {
 					if (Math.abs(numericMonth - originalDateMonth) % 6 === 0) {
-						const newExpense = {
-							...expense,
+						const newEntry = {
+							...entry,
 							date: setToCurrentMonth(numericYear, numericMonth, originalDateDay),
 						};
-						delete newExpense.frequency;
-						delete newExpense.days_of_month;
-						newExpenses.push(newExpense);
+						delete newEntry.frequency;
+						delete newEntry.days_of_month;
+						newEntries.push(newEntry);
 					}
 					break;
 				}
 				case '1-year': {
 					if (numericMonth === originalDateMonth) {
-						const newExpense = {
-							...expense,
+						const newEntry = {
+							...entry,
 							date: setToCurrentMonth(numericYear, numericMonth, originalDateDay),
 						};
-						delete newExpense.frequency;
-						delete newExpense.days_of_month;
-						newExpenses.push(newExpense);
+						delete newEntry.frequency;
+						delete newEntry.days_of_month;
+						newEntries.push(newEntry);
 					}
 					break;
 				}
 				case '1-week': {
 					const gapInDays = Math.floor((currentMonth - originalDate) / 1000 / 3600 / 24);
 					const offset = 7 - (gapInDays % 7);
-					let newExpenseDate = new Date(numericYear, numericMonth, 1 + offset);
+					let newEntryDate = new Date(numericYear, numericMonth, 1 + offset);
 
-					while (newExpenseDate < nextMonth) {
-						const newExpense = {
-							...expense,
-							date: new Date(newExpenseDate),
+					while (newEntryDate < nextMonth) {
+						const newEntry = {
+							...entry,
+							date: new Date(newEntryDate),
 						};
-						delete newExpense.frequency;
-						delete newExpense.days_of_month;
-						newExpenses.push(newExpense);
-						newExpenseDate.setDate(newExpenseDate.getDate() + 7);
+						delete newEntry.frequency;
+						delete newEntry.days_of_month;
+						newEntries.push(newEntry);
+						newEntryDate.setDate(newEntryDate.getDate() + 7);
 					}
 					break;
 				}
 				case '2-week': {
 					const gapInDays = Math.floor((currentMonth - originalDate) / 1000 / 3600 / 24);
 					const offset = 14 - (gapInDays % 14);
-					let newExpenseDate = new Date(numericYear, numericMonth, 1 + offset);
+					let newEntryDate = new Date(numericYear, numericMonth, 1 + offset);
 
-					while (newExpenseDate < nextMonth) {
-						const newExpense = {
-							...expense,
-							date: new Date(newExpenseDate),
+					while (newEntryDate < nextMonth) {
+						const newEntry = {
+							...entry,
+							date: new Date(newEntryDate),
 						};
-						delete newExpense.frequency;
-						delete newExpense.days_of_month;
-						newExpenses.push(newExpense);
-						newExpenseDate.setDate(newExpenseDate.getDate() + 14);
+						delete newEntry.frequency;
+						delete newEntry.days_of_month;
+						newEntries.push(newEntry);
+						newEntryDate.setDate(newEntryDate.getDate() + 14);
 					}
 					break;
 				}
 				case 'twice-per-month': {
-					for (const day of expense.days_of_month) {
-						const newExpense = {
-							...expense,
+					for (const day of entry.days_of_month) {
+						const newEntry = {
+							...entry,
 							date: setToCurrentMonth(numericYear, numericMonth, day),
 						};
-						delete newExpense.frequency;
-						delete newExpense.days_of_month;
-						newExpenses.push(newExpense);
+						delete newEntry.frequency;
+						delete newEntry.days_of_month;
+						newEntries.push(newEntry);
 					}
 					break;
 				}
@@ -142,8 +143,12 @@ export const actions = {
 			}
 		}
 
-		await Promise.all(newExpenses.map((expense) => addExpense(supabase, expense)));
+		await Promise.all(newEntries.map((entry) => addEntry(supabase, entry, type)));
 
 		throw redirect(303, pathname);
-	},
+	};
+
+export const actions = {
+	copyExpenses: copyRecurring('expenses'),
+	copyIncome: copyRecurring('income'),
 };
