@@ -38,20 +38,33 @@ const getDebt = async (supabase, currentMonth, nextMonth) => {
 	return debt;
 };
 
+const hasRecurringExpenses = async (supabase) => {
+	const { count } = await supabase
+		.from('recurring_expenses')
+		.select('*', { count: 'exact', head: true })
+		.eq('active', true);
+
+	return count > 0;
+};
+
 export const getMonthlyOverview = async (supabase, year, month) => {
 	const currentMonth = new Date(year, month, 1).toDateString();
 	const nextMonth = new Date(year, month + 1, 1).toDateString();
-	const [expenses, income, savings, debt] = await Promise.all([
+	const [expenses, income, savings, debt, canCopyExpenses] = await Promise.all([
 		getExpenses(supabase, currentMonth, nextMonth),
 		getIncome(supabase, currentMonth, nextMonth),
 		getSavings(supabase, currentMonth, nextMonth),
 		getDebt(supabase, currentMonth, nextMonth),
+		hasRecurringExpenses(supabase),
 	]);
 
 	return {
+		year,
+		month,
 		expenses,
 		income,
 		savings,
 		debt,
+		canCopyExpenses,
 	};
 };

@@ -1,8 +1,21 @@
 <script>
 	export let data;
+
+	let {
+		year,
+		month,
+		formattedDate,
+		previous,
+		next,
+		expenses,
+		income,
+		savings,
+		debt,
+		canCopyExpenses,
+	} = data;
 </script>
 
-<h1>{data.formattedDate}</h1>
+<h1>{formattedDate}</h1>
 
 <ul>
 	<li>
@@ -14,9 +27,9 @@
 </ul>
 
 <h2>Expenses</h2>
-{#if data.expenses.length}
+{#if expenses.length}
 	<ul>
-		{#each data.expenses as expense}
+		{#each expenses as expense}
 			<li>
 				<a href="/expense/{expense.id}">{expense.description}: {expense.amount}</a>
 			</li>
@@ -24,6 +37,13 @@
 	</ul>
 {:else}
 	<p>No expenses found.</p>
+	{#if canCopyExpenses}
+		<form method="POST" action="?/copyExpenses">
+			<input type="hidden" name="year" value={year} />
+			<input type="hidden" name="month" value={month} />
+			<button type="submit">Copy Recurring Expenses</button>
+		</form>
+	{/if}
 {/if}
 <p>
 	<a href="/recurring-expenses">Manage Recurring Expenses</a>
@@ -33,9 +53,9 @@
 </p>
 
 <h2>Income</h2>
-{#if data.income.length}
+{#if income.length}
 	<ul>
-		{#each data.income as incomeEntry}
+		{#each income as incomeEntry}
 			<li>
 				<a href="/income/{incomeEntry.id}">{incomeEntry.description}: {incomeEntry.amount}</a>
 			</li>
@@ -52,9 +72,9 @@
 </p>
 
 <h2>Savings</h2>
-{#if data.savings.length}
+{#if savings.length}
 	<ul>
-		{#each data.savings as savingsEntry}
+		{#each savings as savingsEntry}
 			<li>
 				<a href="/savings/{savingsEntry.id}">{savingsEntry.description}: {savingsEntry.amount}</a>
 			</li>
@@ -68,9 +88,9 @@
 </p>
 
 <h2>Debt</h2>
-{#if data.debt.length}
+{#if debt.length}
 	<ul>
-		{#each data.debt as debtEntry}
+		{#each debt as debtEntry}
 			<li>
 				<a href="/debt/{debtEntry.id}">{debtEntry.description}: {debtEntry.amount}</a>
 			</li>
