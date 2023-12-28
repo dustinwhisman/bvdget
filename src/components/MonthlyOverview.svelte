@@ -1,4 +1,6 @@
 <script>
+	import { formatCurrency } from '$lib/format-currency';
+
 	export let data;
 
 	let {
@@ -38,14 +40,14 @@
 				{#each expenses as category}
 					<h3>
 						<span>{category.name}</span>
-						<span>{category.amount}</span>
+						<span>{formatCurrency(category.amount)}</span>
 					</h3>
 					<dl>
 						{#each category.entries as expense}
 							<div>
 								<dt><a href="/expense/{expense.id}">{expense.description}</a></dt>
 								<dd>{expense.date}</dd>
-								<dd>{expense.amount}</dd>
+								<dd>{formatCurrency(expense.amount)}</dd>
 							</div>
 						{/each}
 					</dl>
@@ -78,14 +80,14 @@
 				{#each income as category}
 					<h3>
 						<span>{category.name}</span>
-						<span>{category.amount}</span>
+						<span>{formatCurrency(category.amount)}</span>
 					</h3>
 					<dl>
 						{#each category.entries as incomeEntry}
 							<div>
 								<dt><a href="/income/{incomeEntry.id}">{incomeEntry.description}</a></dt>
 								<dd>{incomeEntry.date}</dd>
-								<dd>{incomeEntry.amount}</dd>
+								<dd>{formatCurrency(incomeEntry.amount)}</dd>
 							</div>
 						{/each}
 					</dl>
@@ -118,13 +120,13 @@
 				{#each savings as category}
 					<h3>
 						<span>{category.name}</span>
-						<span>{category.amount}</span>
+						<span>{formatCurrency(category.amount)}</span>
 					</h3>
 					<dl>
 						{#each category.entries as savingsEntry}
 							<div>
 								<dt><a href="/savings/{savingsEntry.id}">{savingsEntry.description}</a></dt>
-								<dd>{savingsEntry.amount}</dd>
+								<dd>{formatCurrency(savingsEntry.amount)}</dd>
 							</div>
 						{/each}
 					</dl>
@@ -154,13 +156,13 @@
 				{#each debt as category}
 					<h3>
 						<span>{category.name}</span>
-						<span>{category.amount}</span>
+						<span>{formatCurrency(category.amount)}</span>
 					</h3>
 					<dl>
 						{#each category.entries as debtEntry}
 							<div>
 								<dt><a href="/debt/{debtEntry.id}">{debtEntry.description}</a></dt>
-								<dd>{debtEntry.amount}</dd>
+								<dd>{formatCurrency(debtEntry.amount)}</dd>
 							</div>
 						{/each}
 					</dl>
