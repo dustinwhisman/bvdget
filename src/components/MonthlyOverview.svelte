@@ -39,7 +39,7 @@
 <div class="obj-overview-grid">
 	<div class="obj-overview-grid__section">
 		<div class="obj-overview-grid__section-heading">
-			<h2>
+			<h2 class="cmp-split-heading">
 				<span>Expenses</span>
 				<span>{formatCurrency(expensesTotal)}</span>
 			</h2>
@@ -47,7 +47,7 @@
 		<div class="obj-overview-grid__section-body">
 			{#if expenses.length}
 				{#each expenses as category}
-					<h3>
+					<h3 class="cmp-split-heading">
 						<span>{category.name}</span>
 						<span>{formatCurrency(category.amount)}</span>
 					</h3>
@@ -82,7 +82,7 @@
 
 	<div class="obj-overview-grid__section">
 		<div class="obj-overview-grid__section-heading">
-			<h2>
+			<h2 class="cmp-split-heading">
 				<span>Income</span>
 				<span>{formatCurrency(incomeTotal)}</span>
 			</h2>
@@ -90,7 +90,7 @@
 		<div class="obj-overview-grid__section-body">
 			{#if income.length}
 				{#each income as category}
-					<h3>
+					<h3 class="cmp-split-heading">
 						<span>{category.name}</span>
 						<span>{formatCurrency(category.amount)}</span>
 					</h3>
@@ -125,7 +125,7 @@
 
 	<div class="obj-overview-grid__section">
 		<div class="obj-overview-grid__section-heading">
-			<h2>
+			<h2 class="cmp-split-heading">
 				<span>Savings</span>
 				<span>{formatCurrency(savingsTotal)}</span>
 			</h2>
@@ -133,7 +133,7 @@
 		<div class="obj-overview-grid__section-body">
 			{#if savings.length}
 				{#each savings as category}
-					<h3>
+					<h3 class="cmp-split-heading">
 						<span>{category.name}</span>
 						<span>{formatCurrency(category.amount)}</span>
 					</h3>
@@ -164,7 +164,7 @@
 
 	<div class="obj-overview-grid__section">
 		<div class="obj-overview-grid__section-heading">
-			<h2>
+			<h2 class="cmp-split-heading">
 				<span>Debt</span>
 				<span>{formatCurrency(debtTotal)}</span>
 			</h2>
@@ -172,7 +172,7 @@
 		<div class="obj-overview-grid__section-body">
 			{#if debt.length}
 				{#each debt as category}
-					<h3>
+					<h3 class="cmp-split-heading">
 						<span>{category.name}</span>
 						<span>{formatCurrency(category.amount)}</span>
 					</h3>

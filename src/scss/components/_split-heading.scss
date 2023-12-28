@@ -1,0 +1,9 @@
+.cmp-split-heading {
+	box-sizing: border-box;
+	display: flex;
+	gap: 1rem;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	padding: 0 0.5rem 0.5rem;
+	border-bottom: 2px solid currentcolor;
+}
