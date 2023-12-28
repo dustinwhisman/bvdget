@@ -8,14 +8,16 @@
 		"npm": ">=10"
 	},
 	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
+		"dev": "vite dev & npm run sass:dev",
+		"build": "npm run sass:build && vite build",
 		"preview": "vite preview",
-		"test": "npm run test:integration && npm run test:unit",
+		"sass:dev": "sass --watch --embed-source-map src/scss/styles.scss static/styles.css",
+		"sass:build": "sass --style=compressed --no-source-map src/scss/styles.scss static/styles.css",
+		"format": "prettier --write .",
 		"lint": "npm run lint:svelte && npm run lint:scss",
 		"lint:svelte": "prettier --check . && eslint .",
 		"lint:scss": "stylelint \"src/**/*.scss\" --color --formatter verbose",
-		"format": "prettier --write .",
+		"test": "npm run test:integration && npm run test:unit",
 		"test:integration": "playwright test",
 		"test:unit": "vitest --run"
 	},
