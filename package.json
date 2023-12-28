@@ -8,12 +8,16 @@
 		"npm": ">=10"
 	},
 	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
+		"dev": "vite dev & npm run sass:dev",
+		"build": "npm run sass:build && vite build",
 		"preview": "vite preview",
-		"test": "npm run test:integration && npm run test:unit",
-		"lint": "prettier --check . && eslint .",
+		"sass:dev": "sass --watch --embed-source-map src/scss/styles.scss static/styles.css",
+		"sass:build": "sass --style=compressed --no-source-map src/scss/styles.scss static/styles.css",
 		"format": "prettier --write .",
+		"lint": "npm run lint:svelte && npm run lint:scss",
+		"lint:svelte": "prettier --check . && eslint .",
+		"lint:scss": "stylelint \"src/**/*.scss\" --color --formatter verbose",
+		"test": "npm run test:integration && npm run test:unit",
 		"test:integration": "playwright test",
 		"test:unit": "vitest --run"
 	},
@@ -27,6 +31,10 @@
 		"eslint-plugin-svelte": "^2.35.1",
 		"prettier": "^3.1.1",
 		"prettier-plugin-svelte": "^3.1.2",
+		"sass": "^1.69.5",
+		"stylelint": "^16.1.0",
+		"stylelint-config-standard": "^36.0.0",
+		"stylelint-config-standard-scss": "^12.0.0",
 		"svelte": "^4.2.8",
 		"vite": "^5.0.10",
 		"vitest": "^1.1.0"
