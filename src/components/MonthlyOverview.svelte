@@ -35,13 +35,21 @@
 		</div>
 		<div class="obj-overview-grid__section-body">
 			{#if expenses.length}
-				<ul>
-					{#each expenses as expense}
-						<li>
-							<a href="/expense/{expense.id}">{expense.description}: {expense.amount}</a>
-						</li>
-					{/each}
-				</ul>
+				{#each expenses as category}
+					<h3>
+						<span>{category.name}</span>
+						<span>{category.amount}</span>
+					</h3>
+					<dl>
+						{#each category.entries as expense}
+							<div>
+								<dt><a href="/expense/{expense.id}">{expense.description}</a></dt>
+								<dd>{expense.date}</dd>
+								<dd>{expense.amount}</dd>
+							</div>
+						{/each}
+					</dl>
+				{/each}
 			{:else}
 				<p>No expenses found.</p>
 				{#if canCopyExpenses}
@@ -67,13 +75,21 @@
 		</div>
 		<div class="obj-overview-grid__section-body">
 			{#if income.length}
-				<ul>
-					{#each income as incomeEntry}
-						<li>
-							<a href="/income/{incomeEntry.id}">{incomeEntry.description}: {incomeEntry.amount}</a>
-						</li>
-					{/each}
-				</ul>
+				{#each income as category}
+					<h3>
+						<span>{category.name}</span>
+						<span>{category.amount}</span>
+					</h3>
+					<dl>
+						{#each category.entries as incomeEntry}
+							<div>
+								<dt><a href="/income/{incomeEntry.id}">{incomeEntry.description}</a></dt>
+								<dd>{incomeEntry.date}</dd>
+								<dd>{incomeEntry.amount}</dd>
+							</div>
+						{/each}
+					</dl>
+				{/each}
 			{:else}
 				<p>No income found.</p>
 				{#if canCopyIncome}
@@ -99,15 +115,20 @@
 		</div>
 		<div class="obj-overview-grid__section-body">
 			{#if savings.length}
-				<ul>
-					{#each savings as savingsEntry}
-						<li>
-							<a href="/savings/{savingsEntry.id}"
-								>{savingsEntry.description}: {savingsEntry.amount}</a
-							>
-						</li>
-					{/each}
-				</ul>
+				{#each savings as category}
+					<h3>
+						<span>{category.name}</span>
+						<span>{category.amount}</span>
+					</h3>
+					<dl>
+						{#each category.entries as savingsEntry}
+							<div>
+								<dt><a href="/savings/{savingsEntry.id}">{savingsEntry.description}</a></dt>
+								<dd>{savingsEntry.amount}</dd>
+							</div>
+						{/each}
+					</dl>
+				{/each}
 			{:else}
 				<p>No savings found.</p>
 				{#if canCopySavings}
@@ -130,13 +151,20 @@
 		</div>
 		<div class="obj-overview-grid__section-body">
 			{#if debt.length}
-				<ul>
-					{#each debt as debtEntry}
-						<li>
-							<a href="/debt/{debtEntry.id}">{debtEntry.description}: {debtEntry.amount}</a>
-						</li>
-					{/each}
-				</ul>
+				{#each debt as category}
+					<h3>
+						<span>{category.name}</span>
+						<span>{category.amount}</span>
+					</h3>
+					<dl>
+						{#each category.entries as debtEntry}
+							<div>
+								<dt><a href="/debt/{debtEntry.id}">{debtEntry.description}</a></dt>
+								<dd>{debtEntry.amount}</dd>
+							</div>
+						{/each}
+					</dl>
+				{/each}
 			{:else}
 				<p>No debt found.</p>
 				{#if canCopyDebt}
