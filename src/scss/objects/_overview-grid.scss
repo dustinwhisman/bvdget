@@ -1,23 +1,30 @@
 .obj-overview-grid {
 	display: grid;
 	grid-template-columns: repeat(4, minmax(18rem, 1fr));
-	gap: 1rem;
+	grid-template-rows: auto calc(100dvh - 14rem) auto;
+	column-gap: 1rem;
 	overflow-x: auto;
+	overflow-y: hidden;
 	scroll-snap-type: x mandatory;
 
-	&__expenses {
+	&__section {
 		scroll-snap-align: start;
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: subgrid;
+		grid-row: 1 / -1;
 	}
 
-	&__income {
-		scroll-snap-align: start;
+	&__section-heading {
+		grid-row: 1 / 2;
 	}
 
-	&__savings {
-		scroll-snap-align: start;
+	&__section-body {
+		grid-row: 2 / 3;
+		overflow-y: auto;
 	}
 
-	&__debt {
-		scroll-snap-align: start;
+	&__section-footer {
+		grid-row: 3 / 4;
 	}
 }
