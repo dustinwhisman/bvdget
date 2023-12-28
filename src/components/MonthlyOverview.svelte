@@ -1,5 +1,6 @@
 <script>
 	import { formatCurrency } from '$lib/format-currency';
+	import { sumAmounts } from '$lib/sum-amounts';
 
 	export let data;
 
@@ -18,6 +19,11 @@
 		canCopySavings,
 		canCopyDebt,
 	} = data;
+
+	let expensesTotal = sumAmounts(expenses);
+	let incomeTotal = sumAmounts(income);
+	let savingsTotal = sumAmounts(savings);
+	let debtTotal = sumAmounts(debt);
 </script>
 
 <h1 class="util-visually-hidden">{formattedDate}</h1>
@@ -33,7 +39,10 @@
 <div class="obj-overview-grid">
 	<div class="obj-overview-grid__section">
 		<div class="obj-overview-grid__section-heading">
-			<h2>Expenses</h2>
+			<h2>
+				<span>Expenses</span>
+				<span>{formatCurrency(expensesTotal)}</span>
+			</h2>
 		</div>
 		<div class="obj-overview-grid__section-body">
 			{#if expenses.length}
@@ -73,7 +82,10 @@
 
 	<div class="obj-overview-grid__section">
 		<div class="obj-overview-grid__section-heading">
-			<h2>Income</h2>
+			<h2>
+				<span>Income</span>
+				<span>{formatCurrency(incomeTotal)}</span>
+			</h2>
 		</div>
 		<div class="obj-overview-grid__section-body">
 			{#if income.length}
@@ -113,7 +125,10 @@
 
 	<div class="obj-overview-grid__section">
 		<div class="obj-overview-grid__section-heading">
-			<h2>Savings</h2>
+			<h2>
+				<span>Savings</span>
+				<span>{formatCurrency(savingsTotal)}</span>
+			</h2>
 		</div>
 		<div class="obj-overview-grid__section-body">
 			{#if savings.length}
@@ -149,7 +164,10 @@
 
 	<div class="obj-overview-grid__section">
 		<div class="obj-overview-grid__section-heading">
-			<h2>Debt</h2>
+			<h2>
+				<span>Debt</span>
+				<span>{formatCurrency(debtTotal)}</span>
+			</h2>
 		</div>
 		<div class="obj-overview-grid__section-body">
 			{#if debt.length}
