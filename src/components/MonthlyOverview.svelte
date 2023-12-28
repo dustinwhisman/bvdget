@@ -1,5 +1,6 @@
 <script>
 	import { formatCurrency } from '$lib/format-currency';
+	import { formatDate } from '$lib/format-date';
 	import { sumAmounts } from '$lib/sum-amounts';
 
 	export let data;
@@ -53,10 +54,12 @@
 					</h3>
 					<dl>
 						{#each category.entries as expense}
-							<div>
-								<dt><a href="/expense/{expense.id}">{expense.description}</a></dt>
-								<dd>{expense.date}</dd>
-								<dd>{formatCurrency(expense.amount)}</dd>
+							<div class="cmp-entry-summary">
+								<dt class="cmp-entry-summary__description">
+									<a href="/expense/{expense.id}">{expense.description}</a>
+								</dt>
+								<dd class="cmp-entry-summary__date">{formatDate(expense.date)}</dd>
+								<dd class="cmp-entry-summary__amount">{formatCurrency(expense.amount)}</dd>
 							</div>
 						{/each}
 					</dl>
@@ -96,10 +99,12 @@
 					</h3>
 					<dl>
 						{#each category.entries as incomeEntry}
-							<div>
-								<dt><a href="/income/{incomeEntry.id}">{incomeEntry.description}</a></dt>
-								<dd>{incomeEntry.date}</dd>
-								<dd>{formatCurrency(incomeEntry.amount)}</dd>
+							<div class="cmp-entry-summary">
+								<dt class="cmp-entry-summary__description">
+									<a href="/income/{incomeEntry.id}">{incomeEntry.description}</a>
+								</dt>
+								<dd class="cmp-entry-summary__date">{formatDate(incomeEntry.date)}</dd>
+								<dd class="cmp-entry-summary__amount">{formatCurrency(incomeEntry.amount)}</dd>
 							</div>
 						{/each}
 					</dl>
@@ -139,9 +144,11 @@
 					</h3>
 					<dl>
 						{#each category.entries as savingsEntry}
-							<div>
-								<dt><a href="/savings/{savingsEntry.id}">{savingsEntry.description}</a></dt>
-								<dd>{formatCurrency(savingsEntry.amount)}</dd>
+							<div class="cmp-entry-summary">
+								<dt class="cmp-entry-summary__description">
+									<a href="/savings/{savingsEntry.id}">{savingsEntry.description}</a>
+								</dt>
+								<dd class="cmp-entry-summary__amount">{formatCurrency(savingsEntry.amount)}</dd>
 							</div>
 						{/each}
 					</dl>
@@ -178,9 +185,11 @@
 					</h3>
 					<dl>
 						{#each category.entries as debtEntry}
-							<div>
-								<dt><a href="/debt/{debtEntry.id}">{debtEntry.description}</a></dt>
-								<dd>{formatCurrency(debtEntry.amount)}</dd>
+							<div class="cmp-entry-summary">
+								<dt class="cmp-entry-summary__description">
+									<a href="/debt/{debtEntry.id}">{debtEntry.description}</a>
+								</dt>
+								<dd class="cmp-entry-summary__amount">{formatCurrency(debtEntry.amount)}</dd>
 							</div>
 						{/each}
 					</dl>
