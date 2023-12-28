@@ -1,9 +1,17 @@
-a,
-a:visited {
+a {
 	color: var(--brand-primary);
 
 	&:focus,
 	&:hover {
 		color: var(--brand-secondary);
+	}
+
+	&:visited {
+		color: var(--brand-primary);
+
+		&:focus,
+		&:hover {
+			color: var(--brand-secondary);
+		}
 	}
 }
