@@ -25,13 +25,13 @@
 	<title>{$page.data.title ?? 'bvdget'} | bvdget</title>
 </svelte:head>
 <header>
-	<nav>
+	<nav class="cmp-navigation" aria-label="Primary navigation">
 		{#if session != null}
-			<a href="/overview">Overview</a>
-			<a href="/auth/sign-out">Sign out</a>
+			<a href="/overview" class="cmp-navigation__link">Overview</a>
+			<a href="/auth/sign-out" class="cmp-navigation__link">Sign out</a>
 		{:else}
-			<a href="/">Home</a>
-			<a href="/auth/login">Log in/sign up</a>
+			<a href="/" class="cmp-navigation__link">Home</a>
+			<a href="/auth/login" class="cmp-navigation__link">Log in/sign up</a>
 		{/if}
 	</nav>
 </header>
