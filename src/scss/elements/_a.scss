@@ -1,0 +1,9 @@
+a,
+a:visited {
+	color: var(--brand-primary);
+
+	&:focus,
+	&:hover {
+		color: var(--brand-secondary);
+	}
+}
