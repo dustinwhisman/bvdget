@@ -12,7 +12,9 @@
 		"build": "vite build",
 		"preview": "vite preview",
 		"test": "npm run test:integration && npm run test:unit",
-		"lint": "prettier --check . && eslint .",
+		"lint": "npm run lint:svelte && npm run lint:scss",
+		"lint:svelte": "prettier --check . && eslint .",
+		"lint:scss": "stylelint \"src/**/*.scss\" --color --formatter verbose",
 		"format": "prettier --write .",
 		"test:integration": "playwright test",
 		"test:unit": "vitest --run"
