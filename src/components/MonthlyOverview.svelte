@@ -18,16 +18,15 @@
 	} = data;
 </script>
 
-<h1>{formattedDate}</h1>
+<h1 class="util-visually-hidden">{formattedDate}</h1>
 
-<ul>
-	<li>
-		<a href={previous.link} data-sveltekit-reload>{previous.text}</a>
-	</li>
-	<li>
-		<a href={next.link} data-sveltekit-reload>{next.text}</a>
-	</li>
-</ul>
+<nav class="cmp-pagination" aria-label="Monthly overview navigation">
+	<a href={previous.link} class="cmp-pagination__link" data-sveltekit-reload>{previous.text}</a>
+	<a href="/overview/{year}/{month + 1}" class="cmp-pagination__link" aria-current="page"
+		>{formattedDate}</a
+	>
+	<a href={next.link} class="cmp-pagination__link" data-sveltekit-reload>{next.text}</a>
+</nav>
 
 <h2>Expenses</h2>
 {#if expenses.length}
