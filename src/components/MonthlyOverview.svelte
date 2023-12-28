@@ -1,4 +1,8 @@
 <script>
+	import { formatCurrency } from '$lib/format-currency';
+	import { formatDate } from '$lib/format-date';
+	import { sumAmounts } from '$lib/sum-amounts';
+
 	export let data;
 
 	let {
@@ -16,6 +20,11 @@
 		canCopySavings,
 		canCopyDebt,
 	} = data;
+
+	let expensesTotal = sumAmounts(expenses);
+	let incomeTotal = sumAmounts(income);
+	let savingsTotal = sumAmounts(savings);
+	let debtTotal = sumAmounts(debt);
 </script>
 
 <h1 class="util-visually-hidden">{formattedDate}</h1>
@@ -31,17 +40,30 @@
 <div class="obj-overview-grid">
 	<div class="obj-overview-grid__section">
 		<div class="obj-overview-grid__section-heading">
-			<h2>Expenses</h2>
+			<h2 class="cmp-split-heading">
+				<span>Expenses</span>
+				<span>{formatCurrency(expensesTotal)}</span>
+			</h2>
 		</div>
 		<div class="obj-overview-grid__section-body">
 			{#if expenses.length}
-				<ul>
-					{#each expenses as expense}
-						<li>
-							<a href="/expense/{expense.id}">{expense.description}: {expense.amount}</a>
-						</li>
-					{/each}
-				</ul>
+				{#each expenses as category}
+					<h3 class="cmp-split-heading">
+						<span>{category.name}</span>
+						<span>{formatCurrency(category.amount)}</span>
+					</h3>
+					<dl>
+						{#each category.entries as expense}
+							<div class="cmp-entry-summary">
+								<dt class="cmp-entry-summary__description">
+									<a href="/expense/{expense.id}">{expense.description}</a>
+								</dt>
+								<dd class="cmp-entry-summary__date">{formatDate(expense.date)}</dd>
+								<dd class="cmp-entry-summary__amount">{formatCurrency(expense.amount)}</dd>
+							</div>
+						{/each}
+					</dl>
+				{/each}
 			{:else}
 				<p>No expenses found.</p>
 				{#if canCopyExpenses}
@@ -63,17 +85,30 @@
 
 	<div class="obj-overview-grid__section">
 		<div class="obj-overview-grid__section-heading">
-			<h2>Income</h2>
+			<h2 class="cmp-split-heading">
+				<span>Income</span>
+				<span>{formatCurrency(incomeTotal)}</span>
+			</h2>
 		</div>
 		<div class="obj-overview-grid__section-body">
 			{#if income.length}
-				<ul>
-					{#each income as incomeEntry}
-						<li>
-							<a href="/income/{incomeEntry.id}">{incomeEntry.description}: {incomeEntry.amount}</a>
-						</li>
-					{/each}
-				</ul>
+				{#each income as category}
+					<h3 class="cmp-split-heading">
+						<span>{category.name}</span>
+						<span>{formatCurrency(category.amount)}</span>
+					</h3>
+					<dl>
+						{#each category.entries as incomeEntry}
+							<div class="cmp-entry-summary">
+								<dt class="cmp-entry-summary__description">
+									<a href="/income/{incomeEntry.id}">{incomeEntry.description}</a>
+								</dt>
+								<dd class="cmp-entry-summary__date">{formatDate(incomeEntry.date)}</dd>
+								<dd class="cmp-entry-summary__amount">{formatCurrency(incomeEntry.amount)}</dd>
+							</div>
+						{/each}
+					</dl>
+				{/each}
 			{:else}
 				<p>No income found.</p>
 				{#if canCopyIncome}
@@ -95,19 +130,29 @@
 
 	<div class="obj-overview-grid__section">
 		<div class="obj-overview-grid__section-heading">
-			<h2>Savings</h2>
+			<h2 class="cmp-split-heading">
+				<span>Savings</span>
+				<span>{formatCurrency(savingsTotal)}</span>
+			</h2>
 		</div>
 		<div class="obj-overview-grid__section-body">
 			{#if savings.length}
-				<ul>
-					{#each savings as savingsEntry}
-						<li>
-							<a href="/savings/{savingsEntry.id}"
-								>{savingsEntry.description}: {savingsEntry.amount}</a
-							>
-						</li>
-					{/each}
-				</ul>
+				{#each savings as category}
+					<h3 class="cmp-split-heading">
+						<span>{category.name}</span>
+						<span>{formatCurrency(category.amount)}</span>
+					</h3>
+					<dl>
+						{#each category.entries as savingsEntry}
+							<div class="cmp-entry-summary">
+								<dt class="cmp-entry-summary__description">
+									<a href="/savings/{savingsEntry.id}">{savingsEntry.description}</a>
+								</dt>
+								<dd class="cmp-entry-summary__amount">{formatCurrency(savingsEntry.amount)}</dd>
+							</div>
+						{/each}
+					</dl>
+				{/each}
 			{:else}
 				<p>No savings found.</p>
 				{#if canCopySavings}
@@ -126,17 +171,29 @@
 
 	<div class="obj-overview-grid__section">
 		<div class="obj-overview-grid__section-heading">
-			<h2>Debt</h2>
+			<h2 class="cmp-split-heading">
+				<span>Debt</span>
+				<span>{formatCurrency(debtTotal)}</span>
+			</h2>
 		</div>
 		<div class="obj-overview-grid__section-body">
 			{#if debt.length}
-				<ul>
-					{#each debt as debtEntry}
-						<li>
-							<a href="/debt/{debtEntry.id}">{debtEntry.description}: {debtEntry.amount}</a>
-						</li>
-					{/each}
-				</ul>
+				{#each debt as category}
+					<h3 class="cmp-split-heading">
+						<span>{category.name}</span>
+						<span>{formatCurrency(category.amount)}</span>
+					</h3>
+					<dl>
+						{#each category.entries as debtEntry}
+							<div class="cmp-entry-summary">
+								<dt class="cmp-entry-summary__description">
+									<a href="/debt/{debtEntry.id}">{debtEntry.description}</a>
+								</dt>
+								<dd class="cmp-entry-summary__amount">{formatCurrency(debtEntry.amount)}</dd>
+							</div>
+						{/each}
+					</dl>
+				{/each}
 			{:else}
 				<p>No debt found.</p>
 				{#if canCopyDebt}

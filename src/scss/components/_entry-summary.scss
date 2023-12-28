@@ -1,0 +1,28 @@
+.cmp-entry-summary {
+	display: grid;
+	grid-template-areas:
+		'date date'
+		'description amount';
+	column-gap: 1rem;
+	grid-template-columns: 1fr auto;
+
+	&__date {
+		grid-area: date;
+		margin: 0;
+		font-size: 0.875rem;
+		font-style: italic;
+	}
+
+	&__description {
+		grid-area: description;
+	}
+
+	&__amount {
+		grid-area: amount;
+		margin: 0;
+	}
+
+	& + & {
+		margin-block-start: 1rem;
+	}
+}

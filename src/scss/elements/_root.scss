@@ -25,6 +25,7 @@
 
 	background-color: var(--brand-background);
 	color: var(--brand-foreground);
+	font-variant-numeric: tabular-nums;
 }
 
 @media (prefers-color-scheme: dark) {
