@@ -1,27 +1,27 @@
 .cmp-form {
-  display: flex;
-  flex-direction: column;
-  align-items: baseline;
+	display: flex;
+	flex-direction: column;
+	align-items: baseline;
 
-  &__label {
-    font-weight: 700;
-  }
+	&__label {
+		font-weight: 700;
+	}
 
-  &__input {
-    box-sizing: border-box;
-    margin-block-start: 4px;
-    width: min(40ch, 100%);
-    background-color: var(--brand-background-alt);
-    border: 2px solid currentcolor;
-    padding: 0.5rem;
-  }
+	&__input {
+		box-sizing: border-box;
+		margin-block-start: 4px;
+		width: min(40ch, 100%);
+		background-color: var(--brand-background-alt);
+		border: 2px solid currentcolor;
+		padding: 0.5rem;
+	}
 
-  &__button {
-    margin-block-start: 1rem;
-    background-color: var(--brand-background-alt);
-    color: var(--brand-primary);
-    border: 2px solid var(--brand-primary);
-    padding: 0.5rem;
-    font-weight: 700;
-  }
+	&__button {
+		margin-block-start: 1rem;
+		background-color: var(--brand-background-alt);
+		color: var(--brand-primary);
+		border: 2px solid var(--brand-primary);
+		padding: 0.5rem;
+		font-weight: 700;
+	}
 }
