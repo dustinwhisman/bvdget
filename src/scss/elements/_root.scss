@@ -19,6 +19,7 @@
 	--color-purple: oklch(38% 0.1 290deg);
 	--color-pink: oklch(38% 0.1 330deg);
 	--brand-background: var(--color-neutral-90);
+	--brand-background-alt: var(--color-white);
 	--brand-foreground: var(--color-neutral-10);
 	--brand-primary: var(--color-teal);
 	--brand-secondary: var(--color-purple);
@@ -39,6 +40,7 @@
 		--color-purple: oklch(80% 0.1 290deg);
 		--color-pink: oklch(80% 0.1 330deg);
 		--brand-background: var(--color-neutral-10);
+		--brand-background-alt: var(--color-neutral-20);
 		--brand-foreground: var(--color-neutral-90);
 	}
 }
