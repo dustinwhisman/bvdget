@@ -8,20 +8,20 @@
 	--color-neutral-60: oklch(60% 0 0deg);
 	--color-neutral-70: oklch(70% 0 0deg);
 	--color-neutral-80: oklch(80% 0 0deg);
-	--color-neutral-90: oklch(90% 0 0deg);
+	--color-neutral-90: oklch(97.5% 0 0deg);
 	--color-white: oklch(100% 0 0deg);
 	--color-red: oklch(38% 0.1 20deg);
 	--color-orange: oklch(38% 0.1 55deg);
 	--color-yellow: oklch(38% 0.1 100deg);
-	--color-green: oklch(38% 0.1 140deg);
+	--color-green: oklch(51.27% 0.149 140deg);
 	--color-teal: oklch(38% 0.1 210deg);
 	--color-blue: oklch(38% 0.1 255deg);
-	--color-purple: oklch(38% 0.1 290deg);
+	--color-purple: oklch(53.33% 0.15 306deg);
 	--color-pink: oklch(38% 0.1 330deg);
 	--brand-background: var(--color-neutral-90);
 	--brand-background-alt: var(--color-white);
 	--brand-foreground: var(--color-neutral-10);
-	--brand-primary: var(--color-teal);
+	--brand-primary: var(--color-green);
 	--brand-secondary: var(--color-purple);
 
 	background-color: var(--brand-background);
@@ -33,14 +33,16 @@
 	:root {
 		--color-red: oklch(80% 0.1 20deg);
 		--color-orange: oklch(80% 0.1 55deg);
-		--color-yellow: oklch(80% 0.1 100deg);
+		--color-yellow: oklch(88.53% 0.15 100deg);
 		--color-green: oklch(80% 0.1 140deg);
 		--color-teal: oklch(80% 0.1 210deg);
 		--color-blue: oklch(80% 0.1 255deg);
 		--color-purple: oklch(80% 0.1 290deg);
-		--color-pink: oklch(80% 0.1 330deg);
+		--color-pink: oklch(79.33% 0.16 338.82deg);
 		--brand-background: var(--color-neutral-10);
 		--brand-background-alt: var(--color-neutral-20);
 		--brand-foreground: var(--color-neutral-90);
+		--brand-primary: var(--color-pink);
+		--brand-secondary: var(--color-yellow);
 	}
 }
