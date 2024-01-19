@@ -18,15 +18,17 @@
 
 		<form method="POST" class="cmp-form" aria-label="Finish logging in">
 			<input type="hidden" name="email" value={data.email} />
-			<label for="token" class="cmp-form__label">One-time code</label>
-			<input
-				id="token"
-				type="text"
-				name="token"
-				class="cmp-form__input"
-				inputmode="numeric"
-				autocomplete="one-time-code"
-			/>
+			<div>
+				<label for="token" class="cmp-form__label">One-time code</label>
+				<input
+					id="token"
+					type="text"
+					name="token"
+					class="cmp-form__input"
+					inputmode="numeric"
+					autocomplete="one-time-code"
+				/>
+			</div>
 			<button type="submit" class="cmp-form__button">Finish logging in</button>
 		</form>
 	{/if}

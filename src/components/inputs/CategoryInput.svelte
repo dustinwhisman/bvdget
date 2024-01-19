@@ -3,15 +3,16 @@
 	export let selectedCategory;
 </script>
 
-<fieldset>
-	<legend>Category</legend>
-	<div>
+<fieldset class="cmp-form__fieldset">
+	<legend class="cmp-form__legend">Category</legend>
+	<div class="cmp-form__radios">
 		<div>
 			<input
 				id="category__new"
 				type="radio"
 				name="category"
 				value="NEW_CATEGORY"
+				class="cmp-form__radio-input"
 				required
 				bind:group={selectedCategory}
 			/>
@@ -24,6 +25,7 @@
 					type="radio"
 					name="category"
 					value={category}
+					class="cmp-form__radio-input"
 					required
 					bind:group={selectedCategory}
 				/>
@@ -34,7 +36,14 @@
 </fieldset>
 {#if selectedCategory === 'NEW_CATEGORY'}
 	<div>
-		<label for="new-category">New Category</label>
-		<input id="new-category" type="text" name="new-category" required autocapitalize="on" />
+		<label for="new-category" class="cmp-form__label">New Category</label>
+		<input
+			id="new-category"
+			type="text"
+			name="new-category"
+			class="cmp-form__input"
+			required
+			autocapitalize="on"
+		/>
 	</div>
 {/if}

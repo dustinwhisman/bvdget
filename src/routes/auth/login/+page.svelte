@@ -20,8 +20,10 @@
 		</p>
 
 		<form method="POST" class="cmp-form" aria-label="Request one-time code">
-			<label for="email" class="cmp-form__label">Email</label>
-			<input id="email" type="email" name="email" class="cmp-form__input" autocomplete="email" />
+			<div>
+				<label for="email" class="cmp-form__label">Email</label>
+				<input id="email" type="email" name="email" class="cmp-form__input" autocomplete="email" />
+			</div>
 			<button type="submit" class="cmp-form__button">Request one-time code</button>
 		</form>
 	{/if}
