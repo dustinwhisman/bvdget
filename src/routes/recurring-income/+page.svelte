@@ -1,17 +1,36 @@
 <script>
+	import { formatCurrency } from '$lib/format-currency';
+	import { formatDate } from '$lib/format-date';
+	import { formatFrequency } from '$lib/format-recurring';
+
 	export let data;
 </script>
 
 <h1>Recurring Income</h1>
 
 {#if data.recurringIncome.length}
-	<ul>
+	<dl class="cmp-entry-summary__wrapper">
 		{#each data.recurringIncome as income}
-			<li>
-				<a href="/recurring-income/income/{income.id}">{income.description}: {income.amount}</a>
-			</li>
+			<div class="cmp-entry-summary cmp-entry-summary--inverted">
+				<dt class="cmp-entry-summary__description">
+					<a href="/recurring-income/income/{income.id}"
+						>{income.description}{income.active ? '' : ' (inactive)'}</a
+					>
+				</dt>
+				<dd class="cmp-entry-summary__amount">
+					{formatCurrency(income.annualAmount)}/year
+				</dd>
+				<dd class="cmp-entry-summary__date">
+					{#if income.frequency !== '1-year'}
+						{formatCurrency(income.amount)}{formatFrequency(income.frequency)}
+					{:else}
+						Yearly
+					{/if}
+					since {formatDate(income.date)}
+				</dd>
+			</div>
 		{/each}
-	</ul>
+	</dl>
 {:else}
 	<p>No recurring income found.</p>
 {/if}
