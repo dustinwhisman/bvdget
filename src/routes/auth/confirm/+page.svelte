@@ -29,7 +29,9 @@
 					autocomplete="one-time-code"
 				/>
 			</div>
-			<button type="submit" class="cmp-form__button">Finish logging in</button>
+			<div>
+				<button type="submit" class="cmp-form__button">Finish logging in</button>
+			</div>
 		</form>
 	{/if}
 </div>

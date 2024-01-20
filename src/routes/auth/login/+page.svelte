@@ -24,7 +24,9 @@
 				<label for="email" class="cmp-form__label">Email</label>
 				<input id="email" type="email" name="email" class="cmp-form__input" autocomplete="email" />
 			</div>
-			<button type="submit" class="cmp-form__button">Request one-time code</button>
+			<div>
+				<button type="submit" class="cmp-form__button">Request one-time code</button>
+			</div>
 		</form>
 	{/if}
 </div>
