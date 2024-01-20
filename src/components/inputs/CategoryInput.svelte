@@ -3,7 +3,7 @@
 	export let selectedCategory = '';
 </script>
 
-{#if categories.length <= 10}
+{#if categories.length > 0 && categories.length <= 10}
 	<fieldset class="cmp-form__fieldset">
 		<legend class="cmp-form__legend">Category</legend>
 		<div class="cmp-form__radios">

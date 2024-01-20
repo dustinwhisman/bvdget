@@ -10,7 +10,7 @@
 
 <h1>Edit Debt</h1>
 
-<form method="POST" action="?/edit" aria-label="Edit debt">
+<form method="POST" action="?/edit" class="cmp-form" aria-label="Edit debt">
 	<input type="hidden" name="id" value={data.debt.id} />
 	<DateInputs showDate={false} date={data.debt.date} />
 	<CategoryInput categories={data.categories} selectedCategory={data.debt.category} />
@@ -18,8 +18,10 @@
 	<AmountInput label="Balance" amount={data.debt.amount} />
 	<AmountInput label="Minimum Payment" name="minimum-payment" amount={data.debt.minimum_payment} />
 	<InterestRateInput interestRate={data.debt.interest_rate} />
-	<div>
-		<button type="submit">Save Debt</button>
-		<button type="submit" formaction="?/delete">Delete Debt</button>
+	<div class="cmp-form__button-group">
+		<button type="submit" class="cmp-form__button">Save Debt</button>
+		<button type="submit" formaction="?/delete" class="cmp-form__button cmp-form__button--danger"
+			>Delete Debt</button
+		>
 	</div>
 </form>

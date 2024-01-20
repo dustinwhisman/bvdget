@@ -10,7 +10,7 @@
 
 <h1>Add Debt</h1>
 
-<form method="POST" aria-label="Add debt">
+<form method="POST" class="cmp-form" aria-label="Add debt">
 	<DateInputs showDate={false} />
 	<CategoryInput categories={data.categories} />
 	<DescriptionInput />
@@ -18,6 +18,6 @@
 	<AmountInput label="Minimum Payment" name="minimum-payment" />
 	<InterestRateInput />
 	<div>
-		<button type="submit">Save Debt</button>
+		<button type="submit" class="cmp-form__button">Save Debt</button>
 	</div>
 </form>
