@@ -1,7 +1,12 @@
 <script>
+	import { formatCurrency } from '$lib/format-currency';
 	export let amount = '';
 	export let label = 'Amount';
 	export let name = 'amount';
+
+	if (amount !== '') {
+		amount = formatCurrency(amount);
+	}
 </script>
 
 <div>
