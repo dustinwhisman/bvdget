@@ -6,9 +6,9 @@
 	export let date;
 </script>
 
-<fieldset>
-	<legend>Frequency</legend>
-	<div>
+<fieldset class="cmp-form__fieldset">
+	<legend class="cmp-form__legend">Frequency</legend>
+	<div class="cmp-form__radios">
 		<div>
 			<input
 				id="frequency__1-month"
@@ -16,6 +16,7 @@
 				name="frequency"
 				value="1-month"
 				bind:group={selectedFrequency}
+				class="cmp-form__radio-input"
 			/>
 			<label for="frequency__1-month">Every Month</label>
 		</div>
@@ -26,6 +27,7 @@
 				name="frequency"
 				value="3-month"
 				bind:group={selectedFrequency}
+				class="cmp-form__radio-input"
 			/>
 			<label for="frequency__3-month">Every 3 Months</label>
 		</div>
@@ -36,6 +38,7 @@
 				name="frequency"
 				value="6-month"
 				bind:group={selectedFrequency}
+				class="cmp-form__radio-input"
 			/>
 			<label for="frequency__6-month">Every 6 Months</label>
 		</div>
@@ -46,6 +49,7 @@
 				name="frequency"
 				value="1-year"
 				bind:group={selectedFrequency}
+				class="cmp-form__radio-input"
 			/>
 			<label for="frequency__1-year">Every Year</label>
 		</div>
@@ -56,6 +60,7 @@
 				name="frequency"
 				value="1-week"
 				bind:group={selectedFrequency}
+				class="cmp-form__radio-input"
 			/>
 			<label for="frequency__1-week">Every Week</label>
 		</div>
@@ -66,6 +71,7 @@
 				name="frequency"
 				value="2-week"
 				bind:group={selectedFrequency}
+				class="cmp-form__radio-input"
 			/>
 			<label for="frequency__2-week">Every 2 Weeks</label>
 		</div>
@@ -76,6 +82,7 @@
 				name="frequency"
 				value="twice-per-month"
 				bind:group={selectedFrequency}
+				class="cmp-form__radio-input"
 			/>
 			<label for="frequency__twice-per-month">Twice per Month</label>
 		</div>
@@ -83,9 +90,11 @@
 </fieldset>
 
 {#if selectedFrequency === 'twice-per-month'}
-	<fieldset>
-		<legend>Choose which days of the month this expense typically occurs on</legend>
-		<div>
+	<fieldset class="cmp-form__fieldset">
+		<legend class="cmp-form__legend"
+			>Choose which days of the month this expense typically occurs on</legend
+		>
+		<div class="cmp-form__date-grid">
 			<!-- eslint-disable-next-line no-unused-vars -->
 			{#each Array(31) as day, index}
 				<div>
@@ -95,6 +104,7 @@
 						name="days-of-month"
 						value={index + 1}
 						bind:group={daysOfMonth}
+						class="cmp-form__checkbox-input"
 					/>
 					<label for="day__{index + 1}">{index + 1}</label>
 				</div>

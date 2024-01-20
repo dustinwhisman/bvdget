@@ -10,7 +10,7 @@
 
 <h1>Edit Recurring Expense</h1>
 
-<form method="POST" action="?/edit" aria-label="Edit recurring expense">
+<form method="POST" action="?/edit" class="cmp-form" aria-label="Edit recurring expense">
 	<input type="hidden" name="id" value={data.expense.id} />
 	<CategoryInput categories={data.categories} selectedCategory={data.expense.category} />
 	<DescriptionInput description={data.expense.description} />
@@ -21,8 +21,10 @@
 		date={data.expense.date}
 	/>
 	<IsActiveInput isActive={data.expense.active} />
-	<div>
-		<button type="submit">Save Recurring Expense</button>
-		<button type="submit" formaction="?/delete">Delete Recurring Expense</button>
+	<div class="cmp-form__button-group cmp-form__button-group--wide">
+		<button type="submit" class="cmp-form__button">Save Recurring Expense</button>
+		<button type="submit" formaction="?/delete" class="cmp-form__button cmp-form__button--danger"
+			>Delete Recurring Expense</button
+		>
 	</div>
 </form>
