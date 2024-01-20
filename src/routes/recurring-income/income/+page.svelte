@@ -10,13 +10,13 @@
 
 <h1>Add Recurring Income</h1>
 
-<form method="POST" aria-label="Add recurring income">
+<form method="POST" class="cmp-form" aria-label="Add recurring income">
 	<CategoryInput categories={data.categories} />
 	<DescriptionInput />
 	<AmountInput />
 	<FrequencyInput />
 	<IsActiveInput />
 	<div>
-		<button type="submit">Save Recurring Income</button>
+		<button type="submit" class="cmp-form__button">Save Recurring Income</button>
 	</div>
 </form>
