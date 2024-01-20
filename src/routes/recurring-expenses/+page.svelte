@@ -1,7 +1,7 @@
 <script>
 	import { formatCurrency } from '$lib/format-currency';
 	import { formatDate } from '$lib/format-date';
-	import { annualAmount, formatFrequency } from '$lib/format-recurring';
+	import { formatFrequency } from '$lib/format-recurring';
 
 	export let data;
 </script>
@@ -18,7 +18,7 @@
 					>
 				</dt>
 				<dd class="cmp-entry-summary__amount">
-					{formatCurrency(annualAmount(expense))}/year
+					{formatCurrency(expense.annualAmount)}/year
 				</dd>
 				<dd class="cmp-entry-summary__date">
 					{#if expense.frequency !== '1-year'}
