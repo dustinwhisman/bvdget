@@ -10,19 +10,20 @@
 	--color-neutral-80: oklch(80% 0 0deg);
 	--color-neutral-90: oklch(97.5% 0 0deg);
 	--color-white: oklch(100% 0 0deg);
-	--color-red: oklch(38% 0.1 20deg);
+	--color-red: oklch(46.89% 0.179 26.36deg);
 	--color-orange: oklch(38% 0.1 55deg);
 	--color-yellow: oklch(38% 0.1 100deg);
-	--color-green: oklch(51.27% 0.149 140deg);
+	--color-green: oklch(43.66% 0.124 139.94deg);
 	--color-teal: oklch(38% 0.1 210deg);
 	--color-blue: oklch(38% 0.1 255deg);
-	--color-purple: oklch(53.33% 0.15 306deg);
+	--color-purple: oklch(46.11% 0.129 306.56deg);
 	--color-pink: oklch(38% 0.1 330deg);
 	--brand-background: var(--color-neutral-90);
 	--brand-background-alt: var(--color-white);
 	--brand-foreground: var(--color-neutral-10);
 	--brand-primary: var(--color-green);
 	--brand-secondary: var(--color-purple);
+	--brand-danger: var(--color-red);
 
 	background-color: var(--brand-background);
 	color: var(--brand-foreground);
@@ -31,7 +32,7 @@
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--color-red: oklch(80% 0.1 20deg);
+		--color-red: oklch(69.76% 0.19 23.54deg);
 		--color-orange: oklch(80% 0.1 55deg);
 		--color-yellow: oklch(88.53% 0.15 100deg);
 		--color-green: oklch(80% 0.1 140deg);

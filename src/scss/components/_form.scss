@@ -19,7 +19,7 @@
 
 		&--short {
 			display: block;
-			max-width: 6ch;
+			max-width: 7ch;
 		}
 
 		&--medium {
@@ -52,6 +52,11 @@
 			outline-offset: 3px;
 			outline-width: 3px;
 		}
+
+		&--danger {
+			background-color: var(--brand-danger);
+			border-color: var(--brand-danger);
+		}
 	}
 
 	&__fieldset {
@@ -77,5 +82,13 @@
 		height: 1rem;
 		width: 1rem;
 		accent-color: var(--brand-primary);
+	}
+
+	&__button-group {
+		display: flex;
+		flex: row wrap;
+		gap: 1rem;
+		width: min(40ch, 100%);
+		justify-content: space-between;
 	}
 }
