@@ -40,6 +40,11 @@
 		padding: 0.5rem;
 		font-weight: 700;
 
+		&:hover {
+			background-color: var(--brand-secondary);
+			border-color: var(--brand-secondary);
+		}
+
 		&:focus {
 			background-color: var(--brand-secondary);
 			border-color: var(--brand-secondary);
