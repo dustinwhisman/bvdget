@@ -9,12 +9,12 @@
 
 <h1>Add Income</h1>
 
-<form method="POST" aria-label="Add income">
+<form method="POST" class="cmp-form" aria-label="Add income">
 	<DateInputs />
 	<CategoryInput categories={data.categories} />
 	<DescriptionInput />
 	<AmountInput />
 	<div>
-		<button type="submit">Save Income</button>
+		<button type="submit" class="cmp-form__button">Save Income</button>
 	</div>
 </form>

@@ -10,13 +10,13 @@
 
 <h1>Add Recurring Expense</h1>
 
-<form method="POST" aria-label="Add recurring expense">
+<form method="POST" class="cmp-form" aria-label="Add recurring expense">
 	<CategoryInput categories={data.categories} />
 	<DescriptionInput />
 	<AmountInput />
 	<FrequencyInput />
 	<IsActiveInput />
 	<div>
-		<button type="submit">Save Recurring Expense</button>
+		<button type="submit" class="cmp-form__button">Save Recurring Expense</button>
 	</div>
 </form>

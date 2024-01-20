@@ -1,27 +1,106 @@
 .cmp-form {
 	display: flex;
 	flex-direction: column;
-	align-items: baseline;
+	gap: 1rem;
 
-	&__label {
+	&__label,
+	&__legend {
+		display: block;
 		font-weight: 700;
 	}
 
 	&__input {
 		box-sizing: border-box;
-		margin-block-start: 4px;
+		margin-block-start: 8px;
 		width: min(40ch, 100%);
 		background-color: var(--brand-background-alt);
 		border: 2px solid currentcolor;
 		padding: 0.5rem;
+
+		&--short {
+			display: block;
+			max-width: 8ch;
+		}
+
+		&--medium {
+			max-width: 18ch;
+		}
+
+		&:focus {
+			outline-color: var(--brand-secondary);
+			outline-offset: 3px;
+			outline-width: 3px;
+		}
 	}
 
 	&__button {
-		margin-block-start: 1rem;
-		background-color: var(--brand-background-alt);
-		color: var(--brand-primary);
+		background-color: var(--brand-primary);
+		color: var(--brand-background);
 		border: 2px solid var(--brand-primary);
 		padding: 0.5rem;
 		font-weight: 700;
+
+		&:hover {
+			background-color: var(--brand-secondary);
+			border-color: var(--brand-secondary);
+		}
+
+		&:focus {
+			background-color: var(--brand-secondary);
+			border-color: var(--brand-secondary);
+			outline-color: var(--brand-secondary);
+			outline-offset: 3px;
+			outline-width: 3px;
+		}
+
+		&--danger {
+			background-color: var(--brand-danger);
+			border-color: var(--brand-danger);
+		}
+	}
+
+	&__fieldset {
+		border: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	&__date {
+		display: flex;
+		flex-flow: row wrap;
+		gap: 1rem;
+	}
+
+	&__radios {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		margin-block-start: 0.5rem;
+	}
+
+	&__radio-input,
+	&__checkbox-input {
+		height: 1rem;
+		width: 1rem;
+		accent-color: var(--brand-primary);
+	}
+
+	&__button-group {
+		display: flex;
+		flex-flow: row wrap;
+		gap: 1rem;
+		width: min(40ch, 100%);
+		justify-content: space-between;
+
+		&--wide {
+			width: min(56ch, 100%);
+		}
+	}
+
+	&__date-grid {
+		display: grid;
+		grid-template-columns: repeat(7, max-content);
+		gap: 0.5rem;
+		margin-block-start: 0.5rem;
 	}
 }

@@ -16,15 +16,16 @@
 	}
 </script>
 
-<fieldset>
-	<legend>{legend}</legend>
-	<div>
+<fieldset class="cmp-form__fieldset">
+	<legend class="util-visually-hidden">{legend}</legend>
+	<div class="cmp-form__date">
 		<div>
-			<label for="year">Year</label>
+			<label for="year" class="cmp-form__label">Year</label>
 			<input
 				id="year"
 				type="text"
 				name="year"
+				class="cmp-form__input cmp-form__input--short"
 				inputmode="numeric"
 				pattern="^[1-2][0-9][0-9][0-9]$"
 				required
@@ -32,11 +33,12 @@
 			/>
 		</div>
 		<div>
-			<label for="month">Month</label>
+			<label for="month" class="cmp-form__label">Month</label>
 			<input
 				id="month"
 				type="text"
 				name="month"
+				class="cmp-form__input cmp-form__input--short"
 				inputmode="numeric"
 				pattern="^(0?[1-9]|1[012])$"
 				required
@@ -45,11 +47,12 @@
 		</div>
 		{#if showDate}
 			<div>
-				<label for="day">Day</label>
+				<label for="day" class="cmp-form__label">Day</label>
 				<input
 					id="day"
 					type="text"
 					name="day"
+					class="cmp-form__input cmp-form__input--short"
 					inputmode="numeric"
 					pattern="^(0?[1-9]|[12]\d|3[01])$"
 					required
