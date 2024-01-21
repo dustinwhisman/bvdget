@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /auth
+Disallow: /debt
+Disallow: /expense
+Disallow: /income
+Disallow: /overview
+Disallow: /recurring-expenses
+Disallow: /recurring-income
+Disallow: /savings
