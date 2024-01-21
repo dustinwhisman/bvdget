@@ -33,7 +33,8 @@ self.addEventListener('fetch', (event) => {
 	// ignore POST requests etc
 	if (event.request.method !== 'GET') return;
 
-	const { protocol } = new URL(event.request.url);
+	const { hostname, protocol } = new URL(event.request.url);
+	if (hostname === 'localhost') return;
 	if (protocol === 'chrome-extension:') return;
 
 	async function respond() {

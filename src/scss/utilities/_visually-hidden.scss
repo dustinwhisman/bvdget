@@ -1,8 +1,17 @@
-.util-visually-hidden:not(:focus) {
-	position: absolute;
-	height: 1px;
-	width: 1px;
-	clip-path: inset(50%);
-	overflow: hidden;
-	white-space: nowrap;
+.util-visually-hidden {
+	&:focus {
+		position: absolute;
+		top: 1rem;
+		background-color: var(--brand-background);
+		padding: 0.5rem;
+	}
+
+	&:not(:focus) {
+		position: absolute;
+		height: 1px;
+		width: 1px;
+		clip-path: inset(50%);
+		overflow: hidden;
+		white-space: nowrap;
+	}
 }
