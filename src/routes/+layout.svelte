@@ -23,6 +23,11 @@
 
 <svelte:head>
 	<title>{$page.data.title ?? 'bvdget'} | bvdget</title>
+	<meta
+		name="description"
+		content={$page.data.description ??
+			'A money tracking app to make it easy to keep a handle on your money habits.'}
+	/>
 </svelte:head>
 <header>
 	<nav class="cmp-navigation" aria-label="Primary navigation">
