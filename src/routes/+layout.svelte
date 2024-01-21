@@ -30,6 +30,7 @@
 	/>
 </svelte:head>
 <header>
+	<a href="#main" class="util-visually-hidden">Skip to main content</a>
 	<nav class="cmp-navigation" aria-label="Primary navigation">
 		{#if session != null}
 			<a href="/overview" class="cmp-navigation__link">Overview</a>
@@ -40,6 +41,6 @@
 		{/if}
 	</nav>
 </header>
-<main>
+<main id="main">
 	<slot />
 </main>

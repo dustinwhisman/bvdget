@@ -29,6 +29,13 @@
 
 <h1 class="util-visually-hidden">{formattedDate}</h1>
 
+<nav aria-label="Skip links">
+	<a href="#expenses" class="util-visually-hidden">Skip to expenses</a>
+	<a href="#income" class="util-visually-hidden">Skip to income</a>
+	<a href="#savings" class="util-visually-hidden">Skip to savings</a>
+	<a href="#debt" class="util-visually-hidden">Skip to debt</a>
+</nav>
+
 <nav class="cmp-pagination" aria-label="Monthly overview navigation">
 	<a href={previous.link} class="cmp-pagination__link" data-sveltekit-reload>{previous.text}</a>
 	<a href="/overview/{year}/{month + 1}" class="cmp-pagination__link" aria-current="page"
@@ -49,6 +56,7 @@
 		<p>
 			<a href="/recurring-expenses">Manage Recurring Expenses</a>
 		</p>
+		<a href="#income" class="util-visually-hidden">Skip to income</a>
 		{#if expenses.length}
 			{#each expenses as category}
 				<h3 class="obj-overview-grid__section-subheading cmp-split-heading">
@@ -90,6 +98,7 @@
 		<p>
 			<a href="/recurring-income">Manage Recurring Income</a>
 		</p>
+		<a href="#savings" class="util-visually-hidden">Skip to savings</a>
 		{#if income.length}
 			{#each income as category}
 				<h3 class="obj-overview-grid__section-subheading cmp-split-heading">
@@ -128,6 +137,7 @@
 		<div>
 			<a href="/savings" class="obj-overview-grid__add-link">Add Savings</a>
 		</div>
+		<a href="#debt" class="util-visually-hidden">Skip to debt</a>
 		{#if savings.length}
 			{#each savings as category}
 				<h3 class="obj-overview-grid__section-subheading cmp-split-heading">
@@ -165,6 +175,7 @@
 		<div>
 			<a href="/debt" class="obj-overview-grid__add-link">Add Debt</a>
 		</div>
+		<a href="#expenses" class="util-visually-hidden">Go to expenses</a>
 		{#if debt.length}
 			{#each debt as category}
 				<h3 class="obj-overview-grid__section-subheading cmp-split-heading">
