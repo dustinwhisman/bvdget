@@ -39,15 +39,18 @@
 		border: 2px solid var(--brand-primary);
 		padding: 0.5rem;
 		font-weight: 700;
+		text-decoration: none;
 
 		&:hover {
 			background-color: var(--brand-secondary);
 			border-color: var(--brand-secondary);
+			color: var(--brand-background);
 		}
 
 		&:focus {
 			background-color: var(--brand-secondary);
 			border-color: var(--brand-secondary);
+			color: var(--brand-background);
 			outline-color: var(--brand-secondary);
 			outline-offset: 3px;
 			outline-width: 3px;

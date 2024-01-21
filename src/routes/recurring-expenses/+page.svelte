@@ -8,6 +8,9 @@
 
 <h1>Recurring Expenses</h1>
 
+<p>
+	<a href="/recurring-expenses/expense" class="cmp-form__button">Add Recurring Expense</a>
+</p>
 {#if data.recurringExpenses.length}
 	<dl class="cmp-entry-summary__wrapper">
 		{#each data.recurringExpenses as expense}
@@ -34,6 +37,3 @@
 {:else}
 	<p>No recurring expenses found.</p>
 {/if}
-<p>
-	<a href="/recurring-expenses/expense">Add Recurring Expense</a>
-</p>

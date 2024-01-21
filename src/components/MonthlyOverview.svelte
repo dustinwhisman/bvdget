@@ -51,7 +51,7 @@
 			<span>{formatCurrency(expensesTotal)}</span>
 		</h2>
 		<div>
-			<a href="/expense" class="obj-overview-grid__add-link">Add Expense</a>
+			<a href="/expense" class="cmp-form__button">Add Expense</a>
 		</div>
 		<p>
 			<a href="/recurring-expenses">Manage Recurring Expenses</a>
@@ -93,7 +93,7 @@
 			<span>{formatCurrency(incomeTotal)}</span>
 		</h2>
 		<div>
-			<a href="/income" class="obj-overview-grid__add-link">Add Income</a>
+			<a href="/income" class="cmp-form__button">Add Income</a>
 		</div>
 		<p>
 			<a href="/recurring-income">Manage Recurring Income</a>
@@ -135,7 +135,7 @@
 			<span>{formatCurrency(savingsTotal)}</span>
 		</h2>
 		<div>
-			<a href="/savings" class="obj-overview-grid__add-link">Add Savings</a>
+			<a href="/savings" class="cmp-form__button">Add Savings</a>
 		</div>
 		<a href="#debt" class="util-visually-hidden">Skip to debt</a>
 		{#if savings.length}
@@ -173,7 +173,7 @@
 			<span>{formatCurrency(debtTotal)}</span>
 		</h2>
 		<div>
-			<a href="/debt" class="obj-overview-grid__add-link">Add Debt</a>
+			<a href="/debt" class="cmp-form__button">Add Debt</a>
 		</div>
 		<a href="#expenses" class="util-visually-hidden">Go to expenses</a>
 		{#if debt.length}

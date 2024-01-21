@@ -4,30 +4,6 @@
 	gap: 2rem 1rem;
 	margin-block-start: 1rem;
 
-	&__add-link {
-		background-color: var(--brand-primary);
-		color: var(--brand-background);
-		border: 2px solid var(--brand-primary);
-		padding: 0.5rem;
-		font-weight: 700;
-		text-decoration: none;
-
-		&:hover {
-			background-color: var(--brand-secondary);
-			border-color: var(--brand-secondary);
-			color: var(--brand-background);
-		}
-
-		&:focus {
-			background-color: var(--brand-secondary);
-			border-color: var(--brand-secondary);
-			color: var(--brand-background);
-			outline-color: var(--brand-secondary);
-			outline-offset: 3px;
-			outline-width: 3px;
-		}
-	}
-
 	&__section {
 		position: relative;
 		padding: 0 0.5rem 0.5rem;
