@@ -7,7 +7,7 @@
 <h1>Savings: {data.formattedDate}</h1>
 
 {#if data.savings.length}
-	<form class="cmp-form">
+	<form method="POST" class="cmp-form" aria-label="Bulk edit savings form">
 		{#each data.savings as category}
 			<fieldset class="cmp-form__fieldset">
 				<legend class="cmp-form__legend cmp-form__legend--large">{category.name}</legend>
