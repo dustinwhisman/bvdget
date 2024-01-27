@@ -7,6 +7,10 @@
 	&__legend {
 		display: block;
 		font-weight: 700;
+
+		&--large {
+			font-size: 1.5rem;
+		}
 	}
 
 	&__input {
@@ -104,6 +108,13 @@
 		display: grid;
 		grid-template-columns: repeat(7, max-content);
 		gap: 0.5rem;
+		margin-block-start: 0.5rem;
+	}
+
+	&__bulk-edit {
+		display: flex;
+		flex-flow: row wrap;
+		gap: 1rem;
 		margin-block-start: 0.5rem;
 	}
 }

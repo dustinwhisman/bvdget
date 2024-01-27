@@ -1,55 +1,6 @@
-const sortByAmount = (a, b) => {
-	if (a.amount > b.amount) {
-		return -1;
-	}
+import { groupByCategory } from './group-by-category';
 
-	if (a.amount < b.amount) {
-		return 1;
-	}
-
-	if (a.date > b.date) {
-		return 1;
-	}
-
-	if (a.date < b.date) {
-		return -1;
-	}
-
-	if (a.name > b.name) {
-		return -1;
-	}
-
-	if (a.name < b.name) {
-		return 1;
-	}
-
-	return 0;
-};
-
-const groupByCategory = (entries) => {
-	const groupedEntries = entries.reduce(
-		(acc, entry) => ({
-			...acc,
-			[entry.category]: {
-				amount: (acc[entry.category]?.amount ?? 0) + entry.amount,
-				entries: [...(acc[entry.category]?.entries ?? []), entry],
-			},
-		}),
-		{}
-	);
-
-	const sortedCategories = Object.entries(groupedEntries)
-		.map(([key, value]) => ({
-			name: key,
-			amount: value.amount,
-			entries: value.entries.sort(sortByAmount),
-		}))
-		.sort(sortByAmount);
-
-	return sortedCategories;
-};
-
-const getExpenses = async (supabase, currentMonth, nextMonth) => {
+export const getExpenses = async (supabase, currentMonth, nextMonth) => {
 	const { data: expenses } = await supabase
 		.from('expenses')
 		.select('id,date,category,description,amount')
@@ -59,7 +10,7 @@ const getExpenses = async (supabase, currentMonth, nextMonth) => {
 	return groupByCategory(expenses);
 };
 
-const getIncome = async (supabase, currentMonth, nextMonth) => {
+export const getIncome = async (supabase, currentMonth, nextMonth) => {
 	const { data: income } = await supabase
 		.from('income')
 		.select('id,date,category,description,amount')
@@ -69,7 +20,7 @@ const getIncome = async (supabase, currentMonth, nextMonth) => {
 	return groupByCategory(income);
 };
 
-const getSavings = async (supabase, currentMonth, nextMonth) => {
+export const getSavings = async (supabase, currentMonth, nextMonth) => {
 	const { data: savings } = await supabase
 		.from('savings')
 		.select('id,date,category,description,amount')
@@ -79,7 +30,7 @@ const getSavings = async (supabase, currentMonth, nextMonth) => {
 	return groupByCategory(savings);
 };
 
-const getDebt = async (supabase, currentMonth, nextMonth) => {
+export const getDebt = async (supabase, currentMonth, nextMonth) => {
 	const { data: debt } = await supabase
 		.from('debt')
 		.select('id,date,category,description,amount,interest_rate,minimum_payment')

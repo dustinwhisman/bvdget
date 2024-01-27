@@ -137,6 +137,11 @@
 		<div>
 			<a href="/savings" class="cmp-form__button">Add Savings</a>
 		</div>
+		{#if savings.length}
+			<p>
+				<a href="/savings/{year}/{month + 1}">Bulk Edit Savings</a>
+			</p>
+		{/if}
 		<a href="#debt" class="util-visually-hidden">Skip to debt</a>
 		{#if savings.length}
 			{#each savings as category}
