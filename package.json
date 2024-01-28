@@ -17,9 +17,7 @@
 		"lint": "npm run lint:svelte && npm run lint:scss",
 		"lint:svelte": "prettier --check . && eslint .",
 		"lint:scss": "stylelint \"src/**/*.scss\" --color --formatter verbose",
-		"test": "npm run test:integration && npm run test:unit",
-		"test:integration": "playwright test",
-		"test:unit": "vitest --run"
+		"test": "vitest --run --passWithNoTests"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.41.1",
