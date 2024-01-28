@@ -47,14 +47,8 @@ npm run lint
 # format files with prettier
 npm run format
 
-# run all tests
+# run unit tests
 npm run test
-
-# only run unit tests
-npm run test:unit
-
-# only run integration tests
-npm run test:integration
 ```
 
 ## Conventional Commits
