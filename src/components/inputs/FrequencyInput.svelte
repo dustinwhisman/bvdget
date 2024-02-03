@@ -2,6 +2,8 @@
 	import DateInputs from './DateInputs.svelte';
 
 	export let selectedFrequency = '1-month';
+	export let interval = null;
+	export let unitOfMeasurement = null;
 	export let daysOfMonth = [];
 	export let date;
 </script>
@@ -86,6 +88,17 @@
 			/>
 			<label for="frequency__twice-per-month">Twice per Month</label>
 		</div>
+		<div>
+			<input
+				id="frequency__custom"
+				type="radio"
+				name="frequency"
+				value="custom"
+				bind:group={selectedFrequency}
+				class="cmp-form__radio-input"
+			/>
+			<label for="frequency__custom">Custom</label>
+		</div>
 	</div>
 </fieldset>
 
@@ -111,6 +124,58 @@
 			{/each}
 		</div>
 	</fieldset>
+{:else if selectedFrequency === 'custom'}
+	<div>
+		<label for="interval" class="cmp-form__label">Interval</label>
+		<input
+			id="interval"
+			type="text"
+			name="interval"
+			value={interval}
+			class="cmp-form__input cmp-form__input--short"
+			inputmode="numeric"
+			pattern="^(0|[1-9]\d*)$"
+		/>
+	</div>
+	<fieldset class="cmp-form__fieldset">
+		<legend class="cmp-form__legend">Unit of measurement</legend>
+		<div class="cmp-form__radios">
+			<div>
+				<input
+					id="interval__days"
+					type="radio"
+					name="unitOfMeasurement"
+					value="day"
+					bind:group={unitOfMeasurement}
+					class="cmp-form__radio-input"
+				/>
+				<label for="interval__days">Days</label>
+			</div>
+			<div>
+				<input
+					id="interval__weeks"
+					type="radio"
+					name="unitOfMeasurement"
+					value="week"
+					bind:group={unitOfMeasurement}
+					class="cmp-form__radio-input"
+				/>
+				<label for="interval__weeks">Weeks</label>
+			</div>
+			<div>
+				<input
+					id="interval__months"
+					type="radio"
+					name="unitOfMeasurement"
+					value="month"
+					bind:group={unitOfMeasurement}
+					class="cmp-form__radio-input"
+				/>
+				<label for="interval__months">Months</label>
+			</div>
+		</div>
+	</fieldset>
+	<DateInputs legend="Choose the most recent date when this expense occurred" {date} />
 {:else}
 	<DateInputs legend="Choose the most recent date when this expense occurred" {date} />
 {/if}
