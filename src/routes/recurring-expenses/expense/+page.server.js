@@ -1,5 +1,5 @@
 import { fail, redirect } from '@sveltejs/kit';
-import { formatAmount, formatDate } from '$lib/format-inputs.js';
+import { getRecurringEntryFormData } from '$lib/format-recurring.js';
 import { gateDynamicPage } from '$lib/gate-dynamic-page.js';
 
 export const load = async ({ locals: { supabase } }) => {
@@ -19,23 +19,8 @@ export const load = async ({ locals: { supabase } }) => {
 export const actions = {
 	default: async ({ request, locals: { supabase } }) => {
 		const formData = await request.formData();
-		const amount = formatAmount(formData.get('amount'));
-
-		const selectedCategory = formData.get('category');
-		const newCategory = formData.get('new-category');
-		const category = newCategory ?? selectedCategory;
-
-		const description = formData.get('description') || category;
-
-		const now = new Date();
-		const year = formData.get('year') ?? now.getFullYear();
-		const month = formData.get('month') ?? now.getMonth() + 1;
-		const day = formData.get('day') ?? now.getDate();
-		const date = formatDate(year, month, day);
-
-		const frequency = formData.get('frequency');
-		const days_of_month = formData.getAll('days-of-month') ?? [];
-		const active = !!formData.get('active');
+		const { amount, category, description, date, frequency, days_of_month, active } =
+			getRecurringEntryFormData(formData);
 
 		const {
 			data: { user },

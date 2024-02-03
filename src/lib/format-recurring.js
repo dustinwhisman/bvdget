@@ -1,3 +1,5 @@
+import { formatDate, formatAmount } from '$lib/format-inputs';
+
 export const annualAmount = ({ frequency, amount }) => {
 	switch (frequency) {
 		case '1-month':
@@ -38,4 +40,65 @@ export const formatFrequency = (frequency) => {
 		default:
 			return '';
 	}
+};
+
+export const getRecurringEntryFormData = (formData) => {
+	const amount = formatAmount(formData.get('amount'));
+
+	const selectedCategory = formData.get('category');
+	const newCategory = formData.get('new-category');
+	const category = newCategory ?? selectedCategory;
+
+	const description = formData.get('description') || category;
+
+	const now = new Date();
+	const year = formData.get('year') ?? now.getFullYear();
+	const month = formData.get('month') ?? now.getMonth() + 1;
+	const day = formData.get('day') ?? now.getDate();
+	const date = formatDate(year, month, day);
+
+	const frequency = formData.get('frequency');
+	const interval = formData.get('interval');
+	const unitOfMeasurement = formData.get('unitOfMeasurement');
+	const days_of_month = formData.getAll('days-of-month') ?? [];
+	const active = !!formData.get('active');
+
+	return {
+		amount,
+		category,
+		description,
+		date,
+		frequency: frequency === 'custom' ? `${interval}-${unitOfMeasurement}` : frequency,
+		days_of_month,
+		active,
+	};
+};
+
+export const formatEntry = (entry) => {
+	let { frequency } = entry;
+
+	let interval = null;
+	let unitOfMeasurement = null;
+
+	switch (frequency) {
+		case '1-month':
+		case '3-month':
+		case '6-month':
+		case '1-year':
+		case '1-week':
+		case '2-week':
+		case 'twice-per-month':
+			break;
+		default:
+			[interval, unitOfMeasurement] = frequency.split('-');
+			frequency = 'custom';
+			break;
+	}
+
+	return {
+		...entry,
+		frequency,
+		interval,
+		unitOfMeasurement,
+	};
 };

@@ -17,6 +17,8 @@
 	<AmountInput amount={data.expense.amount} />
 	<FrequencyInput
 		selectedFrequency={data.expense.frequency}
+		interval={data.expense.interval}
+		unitOfMeasurement={data.expense.unitOfMeasurement}
 		daysOfMonth={data.expense.days_of_month}
 		date={data.expense.date}
 	/>
