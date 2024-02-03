@@ -134,7 +134,7 @@
 			value={interval}
 			class="cmp-form__input cmp-form__input--short"
 			inputmode="numeric"
-			pattern="[0-9]"
+			pattern="^(0|[1-9]\d*)$"
 		/>
 	</div>
 	<fieldset class="cmp-form__fieldset">
