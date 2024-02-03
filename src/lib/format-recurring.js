@@ -1,5 +1,19 @@
 import { formatDate, formatAmount } from '$lib/format-inputs';
 
+const customAnnualMultiplier = (frequency) => {
+	const [interval, unitOfMeasurement] = frequency.split('-');
+	switch (unitOfMeasurement) {
+		case 'day':
+			return 365 / Number.parseInt(interval, 10);
+		case 'week':
+			return 52 / Number.parseInt(interval, 10);
+		case 'month':
+			return 12 / Number.parseInt(interval, 10);
+		default:
+			return 1;
+	}
+};
+
 export const annualAmount = ({ frequency, amount }) => {
 	switch (frequency) {
 		case '1-month':
@@ -17,8 +31,13 @@ export const annualAmount = ({ frequency, amount }) => {
 		case 'twice-per-month':
 			return amount * 24;
 		default:
-			return 0;
+			return amount * customAnnualMultiplier(frequency);
 	}
+};
+
+const customFrequencyDescription = (frequency) => {
+	const [interval, unitOfMeasurement] = frequency.split('-');
+	return `/${interval} ${unitOfMeasurement}${unitOfMeasurement !== '1' ? 's' : ''}`;
 };
 
 export const formatFrequency = (frequency) => {
@@ -38,7 +57,7 @@ export const formatFrequency = (frequency) => {
 		case 'twice-per-month':
 			return ' twice per month';
 		default:
-			return '';
+			return customFrequencyDescription(frequency);
 	}
 };
 
