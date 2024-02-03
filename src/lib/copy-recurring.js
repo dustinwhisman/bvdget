@@ -138,6 +138,53 @@ const copyRecurring =
 					break;
 				}
 				default: {
+					const gapInDays = Math.floor((currentMonth - originalDate) / 1000 / 3600 / 24);
+					const [interval, unitOfMeasurement] = entry.frequency.split('-');
+					let numberOfDays = 0;
+					let numberOfMonths = 0;
+					switch (unitOfMeasurement) {
+						case 'day':
+							numberOfDays = Number.parseInt(interval, 10);
+							break;
+						case 'week':
+							numberOfDays = Number.parseInt(interval, 10) * 7;
+							break;
+						case 'month':
+							numberOfMonths = Number.parseInt(interval, 10);
+							break;
+						default:
+							break;
+					}
+					if (numberOfDays === 0 && numberOfMonths === 0) {
+						break;
+					}
+
+					let newEntryDate = new Date(numericYear, numericMonth, originalDateDay);
+					if (numberOfDays > 0) {
+						const offset = numberOfDays - (gapInDays % numberOfDays);
+						newEntryDate = new Date(numericYear, numericMonth, 1 + offset);
+					} else if (numberOfMonths > 0) {
+						newEntryDate = new Date(
+							numericYear,
+							originalDateMonth + numberOfMonths,
+							originalDateDay
+						);
+					}
+
+					while (newEntryDate < nextMonth) {
+						const newEntry = {
+							...entry,
+							date: new Date(newEntryDate),
+						};
+						delete newEntry.frequency;
+						delete newEntry.days_of_month;
+						newEntries.push(newEntry);
+						if (numberOfDays > 0) {
+							newEntryDate.setDate(newEntryDate.getDate() + numberOfDays);
+						} else {
+							newEntryDate.setDate(newEntryDate.getDate() + numberOfMonths * 31);
+						}
+					}
 					break;
 				}
 			}
