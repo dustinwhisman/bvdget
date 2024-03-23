@@ -3,11 +3,11 @@
 	export let selectedCategory = '';
 </script>
 
-{#if categories.length > 0 && categories.length <= 10}
+{#if categories.length > 0}
 	<fieldset class="cmp-form__fieldset">
 		<legend class="cmp-form__legend">Category</legend>
 		<div class="cmp-form__radios">
-			<div>
+			<div class="cmp-form__radio-wrapper">
 				<input
 					id="category__new"
 					type="radio"
@@ -20,7 +20,7 @@
 				<label for="category__new">New Category</label>
 			</div>
 			{#each categories as { category }, index}
-				<div>
+				<div class="cmp-form__radio-wrapper">
 					<input
 						id="category__{index}"
 						type="radio"
@@ -43,16 +43,10 @@
 			type="text"
 			name="category"
 			value={selectedCategory}
-			list="category-list"
 			class="cmp-form__input"
 			required
 			autocapitalize="on"
 		/>
-		<datalist id="category-list">
-			{#each categories as { category }}
-				<option value={category}></option>
-			{/each}
-		</datalist>
 	</div>
 {/if}
 {#if selectedCategory === 'NEW_CATEGORY'}
