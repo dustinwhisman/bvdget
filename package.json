@@ -14,7 +14,7 @@
 		"sass:dev": "sass --watch --embed-source-map src/scss/styles.scss static/styles.css",
 		"sass:build": "sass --style=compressed --no-source-map src/scss/styles.scss static/styles.css",
 		"format": "prettier --write .",
-		"lint": "npm run lint:svelte && npm run lint:scss",
+		"lint": "npm run lint:scss && npm run lint:svelte",
 		"lint:svelte": "prettier --check . && eslint .",
 		"lint:scss": "stylelint \"src/**/*.scss\" --color --formatter verbose",
 		"test": "vitest --run --passWithNoTests"
