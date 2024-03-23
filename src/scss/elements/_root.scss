@@ -24,6 +24,7 @@
 	--brand-primary: var(--color-green);
 	--brand-secondary: var(--color-purple);
 	--brand-danger: var(--color-red);
+	--brand-shadow: var(--color-neutral-80);
 
 	background-color: var(--brand-background);
 	color: var(--brand-foreground);
@@ -45,5 +46,6 @@
 		--brand-foreground: var(--color-neutral-90);
 		--brand-primary: var(--color-pink);
 		--brand-secondary: var(--color-yellow);
+		--brand-shadow: var(--color-neutral-40);
 	}
 }
