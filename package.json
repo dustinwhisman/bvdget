@@ -21,7 +21,7 @@
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-netlify": "^4.1.0",
-		"@sveltejs/kit": "^2.5.4",
+		"@sveltejs/kit": "^2.5.5",
 		"@sveltejs/vite-plugin-svelte": "^3.0.2",
 		"eslint": "^8.57.0",
 		"eslint-config-prettier": "^9.1.0",
@@ -29,11 +29,11 @@
 		"prettier": "^3.2.5",
 		"prettier-plugin-svelte": "^3.2.2",
 		"sass": "^1.72.0",
-		"stylelint": "^16.3.0",
+		"stylelint": "^16.3.1",
 		"stylelint-config-standard": "^36.0.0",
 		"stylelint-config-standard-scss": "^13.0.0",
 		"svelte": "^4.2.12",
-		"vite": "^5.2.6",
+		"vite": "^5.2.7",
 		"vitest": "^1.4.0"
 	},
 	"dependencies": {
