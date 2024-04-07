@@ -46,7 +46,7 @@
 
 <div class="obj-overview-grid">
 	<section class="obj-overview-grid__section" aria-labelledby="expenses">
-		<h2 id="expenses" class="obj-overview-grid__section-heading cmp-split-heading">
+		<h2 id="expenses" tabindex="-1" class="obj-overview-grid__section-heading cmp-split-heading">
 			<span>Expenses</span>
 			<span>{formatCurrency(expensesTotal)}</span>
 		</h2>
@@ -88,7 +88,7 @@
 	</section>
 
 	<section class="obj-overview-grid__section" aria-labelledby="income">
-		<h2 id="income" class="obj-overview-grid__section-heading cmp-split-heading">
+		<h2 id="income" tabindex="-1" class="obj-overview-grid__section-heading cmp-split-heading">
 			<span>Income</span>
 			<span>{formatCurrency(incomeTotal)}</span>
 		</h2>
@@ -130,7 +130,7 @@
 	</section>
 
 	<section class="obj-overview-grid__section" aria-labelledby="savings">
-		<h2 id="savings" class="obj-overview-grid__section-heading cmp-split-heading">
+		<h2 id="savings" tabindex="-1" class="obj-overview-grid__section-heading cmp-split-heading">
 			<span>Savings</span>
 			<span>{formatCurrency(savingsTotal)}</span>
 		</h2>
@@ -173,7 +173,7 @@
 	</section>
 
 	<section class="obj-overview-grid__section" aria-labelledby="debt">
-		<h2 id="debt" class="obj-overview-grid__section-heading cmp-split-heading">
+		<h2 id="debt" tabindex="-1" class="obj-overview-grid__section-heading cmp-split-heading">
 			<span>Debt</span>
 			<span>{formatCurrency(debtTotal)}</span>
 		</h2>
