@@ -26,14 +26,20 @@ export const load = async ({ params: { year, month }, locals: { supabase } }) =>
 
 export const actions = {
 	default: async ({ request, locals: { supabase } }) => {
-		const formData = await request.formData();
-		for (const [key, value] of formData.entries()) {
-			const amount = formatAmount(value);
-			const { error } = await supabase.from('savings').update({ amount }).eq('id', key).select();
+		try {
+			const formData = await request.formData();
+			const savePromises = Array.from(formData.entries()).map(async ([key, value]) => {
+				const amount = formatAmount(value);
+				const { error } = await supabase.from('savings').update({ amount }).eq('id', key).select();
 
-			if (error) {
-				return fail(500, { message: 'Server error. Try again later.', success: false });
-			}
+				if (error) {
+					throw new Error(error.message);
+				}
+			});
+			
+			await Promise.all(savePromises);
+		} catch (error) {
+			return fail(500, { message: 'Server error. Try again later.', success: false });
 		}
 
 		throw redirect(303, '/overview');
