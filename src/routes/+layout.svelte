@@ -5,8 +5,8 @@
 
 	export let data;
 
-	let { supabase, session } = data;
-	$: ({ supabase, session } = data);
+	let { supabase, session, user } = data;
+	$: ({ supabase, session, user } = data);
 
 	onMount(() => {
 		const {
@@ -32,7 +32,7 @@
 <header>
 	<a href="#main" class="util-visually-hidden">Skip to main content</a>
 	<nav class="cmp-navigation" aria-label="Primary navigation">
-		{#if session != null}
+		{#if session != null || user != null}
 			<a href="/overview" class="cmp-navigation__link">Overview</a>
 			<a href="/auth/sign-out" class="cmp-navigation__link">Sign out</a>
 		{:else}

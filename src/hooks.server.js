@@ -14,12 +14,12 @@ export const handle = async ({ event, resolve }) => {
 		},
 	});
 
-	event.locals.getSession = async () => {
+	event.locals.getUser = async () => {
 		const {
-			data: { session },
-		} = await event.locals.supabase.auth.getSession();
+			data: { user },
+		} = await event.locals.supabase.auth.getUser();
 
-		return session;
+		return user;
 	};
 
 	return resolve(event, {
