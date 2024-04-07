@@ -6,20 +6,27 @@ export const handle = async ({ event, resolve }) => {
 		cookies: {
 			get: (key) => event.cookies.get(key),
 			set: (key, value, options) => {
-				event.cookies.set(key, value, options);
+				event.cookies.set(key, value, { ...options, path: '/' });
 			},
 			remove: (key, options) => {
-				event.cookies.delete(key, options);
+				event.cookies.delete(key, { ...options, path: '/' });
 			},
 		},
 	});
 
-	event.locals.getSession = async () => {
+	event.locals.safeGetSession = async () => {
+		const {
+			data: { user },
+			error,
+		} = await event.locals.supabase.auth.getUser();
+		if (error) {
+			return { session: null, user: null };
+		}
+
 		const {
 			data: { session },
 		} = await event.locals.supabase.auth.getSession();
-
-		return session;
+		return { session, user };
 	};
 
 	return resolve(event, {

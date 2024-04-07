@@ -9,7 +9,7 @@
 <h1>Recurring Expenses</h1>
 
 <p>
-	<a href="/recurring-expenses/expense" class="cmp-form__button">Add Recurring Expense</a>
+	<a href="/recurring-expenses/expense" class="cmp-cta-link">Add Recurring Expense</a>
 </p>
 {#if data.recurringExpenses.length}
 	<dl class="cmp-entry-summary__wrapper">
