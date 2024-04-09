@@ -38,7 +38,7 @@ export const actions = {
 			});
 
 			await Promise.all(savePromises);
-		} catch (error) {
+		} catch {
 			return fail(500, { message: 'Server error. Try again later.', success: false });
 		}
 
