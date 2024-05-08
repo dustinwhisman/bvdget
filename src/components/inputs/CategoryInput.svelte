@@ -4,7 +4,7 @@
 </script>
 
 {#if categories.length > 0}
-	<fieldset class="cmp-form__fieldset">
+	<fieldset class="cmp-form__fieldset cmp-form__fieldset--category">
 		<legend class="cmp-form__legend">Category</legend>
 		<div class="cmp-form__radios">
 			<div class="cmp-form__radio-wrapper">
@@ -35,6 +35,16 @@
 			{/each}
 		</div>
 	</fieldset>
+	<div class="cmp-form__new-category">
+		<label for="new-category" class="cmp-form__label">New Category</label>
+		<input
+			id="new-category"
+			type="text"
+			name="new-category"
+			class="cmp-form__input"
+			autocapitalize="on"
+		/>
+	</div>
 {:else}
 	<div>
 		<label for="category" class="cmp-form__label">Category</label>
@@ -43,19 +53,6 @@
 			type="text"
 			name="category"
 			value={selectedCategory}
-			class="cmp-form__input"
-			required
-			autocapitalize="on"
-		/>
-	</div>
-{/if}
-{#if selectedCategory === 'NEW_CATEGORY'}
-	<div>
-		<label for="new-category" class="cmp-form__label">New Category</label>
-		<input
-			id="new-category"
-			type="text"
-			name="new-category"
 			class="cmp-form__input"
 			required
 			autocapitalize="on"

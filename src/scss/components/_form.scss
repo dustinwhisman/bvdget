@@ -75,10 +75,48 @@
 		}
 	}
 
+	&__new-category {
+		display: none;
+	}
+
+	&__twice-per-month {
+		display: none;
+	}
+
+	&__custom-frequency {
+		display: none;
+	}
+
+	&__default-frequency {
+		display: block;
+	}
+
 	&__fieldset {
 		border: none;
 		margin: 0;
 		padding: 0;
+
+		&--category {
+			&:has(#category__new:checked) + .cmp-form__new-category {
+				display: block;
+			}
+		}
+
+		&--frequency {
+			&:has(#frequency__twice-per-month:checked) {
+				& ~ .cmp-form__twice-per-month {
+					display: block;
+				}
+
+				& ~ .cmp-form__default-frequency {
+					display: none;
+				}
+			}
+
+			&:has(#frequency__custom:checked) ~ .cmp-form__custom-frequency {
+				display: flex;
+			}
+		}
 	}
 
 	&__date {

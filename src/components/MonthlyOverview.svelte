@@ -37,11 +37,11 @@
 </nav>
 
 <nav class="cmp-pagination" aria-label="Monthly overview navigation">
-	<a href={previous.link} class="cmp-pagination__link" data-sveltekit-reload>{previous.text}</a>
+	<a href={previous.link} class="cmp-pagination__link">{previous.text}</a>
 	<a href="/overview/{year}/{month + 1}" class="cmp-pagination__link" aria-current="page"
 		>{formattedDate}</a
 	>
-	<a href={next.link} class="cmp-pagination__link" data-sveltekit-reload>{next.text}</a>
+	<a href={next.link} class="cmp-pagination__link">{next.text}</a>
 </nav>
 
 <div class="obj-overview-grid">

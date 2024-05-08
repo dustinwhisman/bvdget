@@ -66,7 +66,7 @@ export const getRecurringEntryFormData = (formData) => {
 
 	const selectedCategory = formData.get('category');
 	const newCategory = formData.get('new-category');
-	const category = newCategory ?? selectedCategory;
+	const category = newCategory || selectedCategory || 'Unspecified';
 
 	const description = formData.get('description') || category;
 
