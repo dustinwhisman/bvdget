@@ -8,14 +8,16 @@ const ASSETS = [
 	...files, // everything in `static`
 ];
 
-self.addEventListener('install', (event) => {
+self.addEventListener('install', () => {
+	self.skipWaiting();
+
 	// Create a new cache and add all files to it
 	async function addFilesToCache() {
 		const cache = await caches.open(CACHE);
 		await cache.addAll(ASSETS);
 	}
 
-	event.waitUntil(addFilesToCache());
+	addFilesToCache();
 });
 
 self.addEventListener('activate', (event) => {
