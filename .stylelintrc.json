@@ -8,6 +8,13 @@
 				"resolveNestedSelectors": true
 			}
 		],
+		"selector-id-pattern": [
+			"^(?:[a-z][a-z0-9]*(?:-[a-z0-9]+)*(?:__[a-z0-9]+(?:-[a-z0-9]+)*)?(?:--[a-z0-9]+(?:-[a-z0-9]+)*)?)?(?:\\[.+\\])?$",
+			{
+				"message": "Expected property name to be in BEM format",
+				"resolveNestedSelectors": true
+			}
+		],
 		"media-feature-range-notation": "prefix",
 		"max-nesting-depth": [
 			4,
