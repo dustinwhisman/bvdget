@@ -75,10 +75,20 @@
 		}
 	}
 
+	&__new-category {
+		display: none;
+	}
+
 	&__fieldset {
 		border: none;
 		margin: 0;
 		padding: 0;
+
+		&--category {
+			&:has(#category__new:checked) + .cmp-form__new-category {
+				display: block;
+			}
+		}
 	}
 
 	&__date {
