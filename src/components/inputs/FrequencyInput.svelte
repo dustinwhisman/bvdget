@@ -8,7 +8,7 @@
 	export let date;
 </script>
 
-<fieldset class="cmp-form__fieldset">
+<fieldset class="cmp-form__fieldset cmp-form__fieldset--frequency">
 	<legend class="cmp-form__legend">Frequency</legend>
 	<div class="cmp-form__radios">
 		<div class="cmp-form__radio-wrapper">
@@ -101,8 +101,7 @@
 		</div>
 	</div>
 </fieldset>
-
-{#if selectedFrequency === 'twice-per-month'}
+<div class="cmp-form__twice-per-month">
 	<fieldset class="cmp-form__fieldset">
 		<legend class="cmp-form__legend"
 			>Choose which days of the month this expense typically occurs on</legend
@@ -124,7 +123,8 @@
 			{/each}
 		</div>
 	</fieldset>
-{:else if selectedFrequency === 'custom'}
+</div>
+<div class="cmp-form cmp-form__custom-frequency">
 	<div>
 		<label for="interval" class="cmp-form__label">Interval</label>
 		<input
@@ -175,7 +175,7 @@
 			</div>
 		</div>
 	</fieldset>
+</div>
+<div class="cmp-form__default-frequency">
 	<DateInputs legend="Choose the most recent date when this expense occurred" {date} />
-{:else}
-	<DateInputs legend="Choose the most recent date when this expense occurred" {date} />
-{/if}
+</div>
