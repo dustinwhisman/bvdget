@@ -1,3 +1,5 @@
+export const csr = false;
+
 export const load = async ({ locals: { safeGetSession } }) => {
 	const { session, user } = await safeGetSession();
 	return {
