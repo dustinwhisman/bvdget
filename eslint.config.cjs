@@ -31,6 +31,7 @@ module.exports = [
 			'pnpm-lock.yaml',
 			'package-lock.json',
 			'yarn.lock',
+			'.netlify',
 		],
 	},
 ];
