@@ -20,22 +20,22 @@
 		"test": "vitest --run --passWithNoTests"
 	},
 	"devDependencies": {
-		"@eslint/js": "^9.10.0",
-		"@sveltejs/adapter-netlify": "^4.3.3",
-		"@sveltejs/kit": "^2.5.27",
+		"@eslint/js": "^9.11.0",
+		"@sveltejs/adapter-netlify": "^4.3.4",
+		"@sveltejs/kit": "^2.5.28",
 		"@sveltejs/vite-plugin-svelte": "^3.1.2",
-		"eslint": "^9.10.0",
+		"eslint": "^9.11.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.44.0",
 		"globals": "^15.9.0",
 		"prettier": "^3.3.3",
 		"prettier-plugin-svelte": "^3.2.6",
-		"sass": "^1.78.0",
+		"sass": "^1.79.3",
 		"stylelint": "^16.9.0",
 		"stylelint-config-standard": "^36.0.1",
 		"stylelint-config-standard-scss": "^13.1.0",
 		"svelte": "^4.2.19",
-		"vite": "^5.4.6",
+		"vite": "^5.4.7",
 		"vitest": "^2.1.1"
 	},
 	"dependencies": {
