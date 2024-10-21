@@ -23,7 +23,7 @@
 		"@eslint/js": "^9.13.0",
 		"@sveltejs/adapter-netlify": "^4.3.5",
 		"@sveltejs/kit": "^2.7.2",
-		"@sveltejs/vite-plugin-svelte": "^3.1.2",
+		"@sveltejs/vite-plugin-svelte": "^4.0.0",
 		"eslint": "^9.13.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.46.0",
@@ -34,7 +34,7 @@
 		"stylelint": "^16.10.0",
 		"stylelint-config-standard": "^36.0.1",
 		"stylelint-config-standard-scss": "^13.1.0",
-		"svelte": "^4.2.19",
+		"svelte": "^5.0.4",
 		"vite": "^5.4.9",
 		"vitest": "^2.1.3"
 	},
